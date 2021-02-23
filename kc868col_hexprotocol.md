@@ -719,35 +719,10 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | 38 | spare | 0x00 |
 | 2 | valid data | Temperature change threshold | 0x00 (low byte)<br />0x00 (high byte) |
 | 2 | | analog quantity change threshold | 0x00 (low byte)<br />0x00 (high byte) |
-| 2 | 
-
-Time reporting
-
-0x00 (low byte)
-
-0x00 (high byte)
-
-6
-
-Date \+ time
-
-0x00
-
-1
-
-Actively report the flag
-
-0x01/0x00 ( open / close )
-
-3
-
-Version number V1.0.2
-
-0x02
-
-0x00
-
-0x01
+| 2 | | time reporting | 0x00 (low byte)<br />0x00 (high byte) |
+| 6 | | Date + time | 0x00 |
+| 1 | | actively report the flag | 0x01/0x00 ( open / close ) |
+| 3 | | version number V1.0.2 | 0x02<br />0x00<br />0x01 |
 
 #### 2.2.41 is the automatic reporting command switch 0xC041
 
