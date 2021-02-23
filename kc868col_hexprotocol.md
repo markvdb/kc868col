@@ -85,19 +85,19 @@ The function code is 1 byte and is used to select a command (read, write, respon
 
 | Function code (host request) | Function code (slave response) | meaning |
 | --- | --- | --- |
-| 0x C001 | 0x C001 | relay board transparent transmission command |
-| 0x C002 | 0x C002 | RS232 transparent transmission command |
-| 0x C003 | 0x C003 | RS485 transparent transmission command |
-| 0x C011 | 0x C011 | Ifttt function configuration command |
-| 0x C012 | 0x C012 | PC download custom content command |
-| 0x C021 | 0x C021 | read Ifttt function configuration command |
-| 0x C022 | 0x C022 | Read command to download custom content from upper computer |
-| 0x C023 | 0x C023 | Read switch command |
-| 0x C024 | 0x C024 | Read analog command |
-| 0x C025 | 0x C025 | Read temperature value command |
-| 0x C031 | 0x C031 | Main control board parameter setting command |
-| 0x C032 | 0x C032 | Time synchronization command |
-| 0x C033 | 0x C033 | Turn on / off automatic reporting commands |
+| 0xC001 | 0xC001 | relay board transparent transmission command |
+| 0xC002 | 0xC002 | RS232 transparent transmission command |
+| 0xC003 | 0xC003 | RS485 transparent transmission command |
+| 0xC011 | 0xC011 | Ifttt function configuration command |
+| 0xC012 | 0xC012 | PC download custom content command |
+| 0xC021 | 0xC021 | read Ifttt function configuration command |
+| 0xC022 | 0xC022 | Read command to download custom content from upper computer |
+| 0xC023 | 0xC023 | Read switch command |
+| 0xC024 | 0xC024 | Read analog command |
+| 0xC025 | 0xC025 | Read temperature value command |
+| 0xC031 | 0xC031 | Main control board parameter setting command |
+| 0xC032 | 0xC032 | Time synchronization command |
+| 0xC033 | 0xC033 | Turn on / off automatic reporting commands |
 
 Every function code is explained in detail below.
 
@@ -111,7 +111,7 @@ This command is a transparent transmission command, and the slave computer forwa
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 |mark bit | | 0x 5E |
+| 1 |mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x01 (low byte)<br /> 0xC0 (high byte) |
 | 2 | message length | | N (low byte)< br /> N>>8 (high byte) |
@@ -122,7 +122,7 @@ This command is a transparent transmission command, and the slave computer forwa
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x01 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
@@ -139,7 +139,7 @@ This command is a transparent transmission command, and the slave machine forwar
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x02 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
@@ -151,7 +151,7 @@ This command is a transparent transmission command, and the slave machine forwar
 
 | byte | meaning | example | |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x0 2 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
@@ -169,7 +169,7 @@ This command is a transparent transmission command, and the slave computer forwa
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x0 3 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
@@ -181,7 +181,7 @@ This command is a transparent transmission command, and the slave computer forwa
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x03 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
@@ -202,15 +202,15 @@ This command is a transparent transmission command, and the slave computer forwa
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 11 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | | 0x11 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | IFTTT function configuration number | 0x00 ( 1~50 ) |
 | 1 | | number of conditions | M ( 1~10 ) |
 | 1 | | then number | K ( 1~50 ) |
-| 1 | | IFTTT runs | 0 x 00 |
+| 1 | | IFTTT runs | 0x00 |
 | 6 | | condition 1 parameters |
 | 6 | | condition 2 parameters |
 | ( M-2 ) \*6 | | ... | remaining condition type parameters |
@@ -224,7 +224,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | --- | --- | --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
-| 2 | message type | 0x 1 1 (low byte)<br />0xC0 (high byte)|
+| 2 | message type | 0x11 (low byte)<br />0xC0 (high byte)|
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare |  0x00 |
 | 1 | operation result | 1/0<br />=1 , success<br />=0 , failed, data is full |
@@ -312,9 +312,9 @@ Custom content output type
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 12 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | | 0x12 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | content number | 0x00 |
@@ -325,9 +325,9 @@ Custom content output type
 
 | byte | meaning | example |
 | --- | --- | --- |
-| 1 | mark bit | 0x 5E |
+| 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
-| 2 | message type | 0x 12 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | 0x12 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
 | 1 | operation result | 1/0<br />=1 , success<br />=0 , failed, data is full |
@@ -346,7 +346,7 @@ Custom content output type
 | --- | --- | --- | --- |
 | 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 13 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | | 0x13 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | Ifttt function number | 0x0 1 (delete one of 1~50 )<br />0xFF (delete all) |
@@ -357,7 +357,7 @@ Custom content output type
 | ---  | --- | --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
-| 2 | message type | 0x 13 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | 0x13 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
 | 1 | operation result | 1/0<br />=1 , success<br />=0 , failed, the number is out of range |
@@ -387,7 +387,7 @@ Custom content output type
 | --- | --- | --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
-| 2 | message type | 0x 14 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | 0x14 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
 | 1 | operation result | 1/0<br />=1 , success<br />\=0 , failed, the number is out of range |
@@ -406,7 +406,7 @@ Custom content output type
 | --- | --- | --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
-| 2 | message type | 0x 21 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | 0x21 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
 | 1 | ifttt function configuration number | 0x01 (the first number) |
@@ -415,9 +415,9 @@ Custom content output type
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 21 (low byte) <br />0xC0 (high byte) |
+| 2 | message type | | 0x21 (low byte) <br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare |  | 0x00 |
 | 1 | valid data | operation result | 0x01/0x00 (success / failure) |
@@ -458,7 +458,7 @@ Custom content output type
 | --- | --- | --- | --- |
 | 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 22 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | | 0x22 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | operation result | 0x01/0x00 (success / failure) |
@@ -514,9 +514,9 @@ Custom content output type
 
 | byte | meaning | example |
 | ---  | --- | --- |
-| 1 | mark bit | 0x 5E |
+| 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
-| 2 | message type | 0x 24 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | 0x24 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
 | 1 | Analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />0xFF (all 16 channels) |
@@ -525,9 +525,9 @@ Custom content output type
 
 | byte | meaning | |example |
 | --- | --- | --- | --- |
-| 1 | mark bit |  | 0x 5E |
+| 1 | mark bit |  | 0x5E |
 | 1 | version number |  | 0x01 |
-| 2 | message type |  | 0x 24 (low byte)<br />0xC0 (high byte) |
+| 2 | message type |  | 0x24 (low byte)<br />0xC0 (high byte) |
 | 2 | message length |  | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare |  | 0x00 |
 | 1 | valid data | analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />=0xFF (all 16 channels) |
@@ -582,16 +582,16 @@ Custom content output type
 | --- | --- | --- | --- |
 | 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type |  | 0x 2 6 (low byte)<br />0xC0 (high byte) |
+| 2 | message type |  | 0x26 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | IFTTT status | 0 x 00 (No. 1~ 8 ifttt )<br />0x01 represents the number 1 IFTTT is in Then state |
-| 1 | valid data | IFTTT stauts | 0 x 00 (No. 9 ~ 16 ifttt )|
-| 1 | valid data | IFTTT stauts | 0 x 00 (No. 17 ~ 24 ifttt )|
-| 1 | valid data | IFTTT stauts | 0 x 00 (No. 25 ~ 32 ifttt )|
-| 1 | valid data | IFTTT stauts | 0 x 00 (No. 33 ~ 40 ifttt )|
-| 1 | valid data | IFTTT stauts | 0 x 00 (No. 41 ~ 48 ifttt )|
-| 1 | valid data | IFTTT stauts | 0 x 00 (No. 49 ~ 50 ifttt )|
+| 1 | valid data | IFTTT status | 0x00 (No. 1~ 8 ifttt )<br />0x01 represents the number 1 IFTTT is in Then state |
+| 1 | valid data | IFTTT stauts | 0x00 (No. 9 ~ 16 ifttt )|
+| 1 | valid data | IFTTT stauts | 0x00 (No. 17 ~ 24 ifttt )|
+| 1 | valid data | IFTTT stauts | 0x00 (No. 25 ~ 32 ifttt )|
+| 1 | valid data | IFTTT stauts | 0x00 (No. 33 ~ 40 ifttt )|
+| 1 | valid data | IFTTT stauts | 0x00 (No. 41 ~ 48 ifttt )|
+| 1 | valid data | IFTTT stauts | 0x00 (No. 49 ~ 50 ifttt )|
 
 High 6bit is invalid
 
@@ -627,7 +627,7 @@ High 6bit is invalid
 | --- | --- | --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
-| 2 | message type | 0x 31 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | 0x31 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
 
@@ -704,7 +704,7 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | --- | --- | --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
-| 2 | message type | 0x 34 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | 0x34 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
 
@@ -736,7 +736,7 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | --- | --- | --- | --- |
 | 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 41 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | | 0x41 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | analog number | 0xFF (all 16 channels) |
@@ -752,9 +752,9 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit |  | 0x 5E |
+| 1 | mark bit |  | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 42 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | | 0x42 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | analog number | 0xFF (all 16 channels) |
@@ -770,9 +770,9 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | |0x01 |
-| 2 | message type |  |0x 43 (low byte)<br />0xC0 (high byte) |
+| 2 | message type |  |0x43 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | |N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | analog number | 0xFF (all 5 channels)|
@@ -795,9 +795,9 @@ Author KinCony IOT
 
 amend record
 
-1.  0x C034 command, the reply data adds 1 byte (automatically reported flag) + software version number;
-2.  0x C001 command, reply to increase the reply content of the relay;
-3.  0x C002 command, response to increase valid data;
-4.  0x C003 command, add RS485 reply content in response;
+1.  0xC034 command, the reply data adds 1 byte (automatically reported flag) + software version number;
+2.  0xC001 command, reply to increase the reply content of the relay;
+3.  0xC002 command, response to increase valid data;
+4.  0xC003 command, add RS485 reply content in response;
 5.  0xC021 command, add a data bit;
 6.  0xC011 command and 0xC012 command response add a data bit;
