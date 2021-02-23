@@ -362,15 +362,15 @@ Custom content output type
 | 38 | spare | 0x00 |
 | 1 | operation result | 1/0<br />=1 , success<br />=0 , failed, the number is out of range |
 
-#### 2 . 14 to delete the contents of the PC download custom command 0xC014
+#### 2.14 to delete the contents of the PC download custom command 0xC014
 
-##### 1 ) Description
+##### 1) Description
 
-1\. Delete the custom content data downloaded by the upper computer, you can delete one or all;
+1. Delete the custom content data downloaded by the upper computer, you can delete one or all;
 
-2\. The number range is 1~32 , and the response fails if it exceeds the range;
+2. The number range is 1~32 , and the response fails if it exceeds the range;
 
-##### 2 ) Host request
+##### 2) Host request
 
 byte
 
