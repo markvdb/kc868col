@@ -655,12 +655,12 @@ The upper computer is connected to the main control board for time synchronizati
 
 ##### 3 ) Slave response
 
-| byte | meaning | | example |
-| --- | --- | --- | --- |
-| 1 | mark bit |  | 0x5E |
-| 1 | version number |  | 0x01 |
-| 2 | message type |  | 0x32 (low byte)<br />0xC0 (high byte) |
-| 2 | message length |  | N (low byte)<br />N>>8 (high byte) |
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x32 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 
 #### 2.2.33 is turned on / off automatic reporting command 0xC033
@@ -671,57 +671,14 @@ Whether the upper computer setting is automatically reported;
 
 ##### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 33 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Features
-
-0x01/0x00
-
-\=1 , turn on reporting
-
-\=0 , close reporting
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x33 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br /> N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | valid data | features | 0x01/0x00<br />=1 , turn on reporting<br />=0 , close reporting|
 
 ##### 3 ) Slave response
 
