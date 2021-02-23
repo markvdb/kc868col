@@ -444,7 +444,7 @@ Custom content output type
 ##### 2 ) Host request
 
 | byte | meaning | example |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
 | 2 | message type | 0x22 (low byte)<br /> 0xC0 (high byte) |
@@ -490,7 +490,7 @@ Custom content output type
 
 #### 3 ) Slave response
 
-| byte | meaning | example |
+| byte | meaning | | example |
 | --- | --- | --- | --- |
 | 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
