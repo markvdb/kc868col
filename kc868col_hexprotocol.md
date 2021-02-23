@@ -655,7 +655,7 @@ The upper computer is connected to the main control board for time synchronizati
 
 ##### 3 ) Slave response
 
-| byte | meaning | example |
+| byte | meaning | | example |
 | --- | --- | --- | --- |
 | 1 | mark bit |  | 0x5E |
 | 1 | version number |  | 0x01 |
