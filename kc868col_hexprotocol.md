@@ -2,57 +2,57 @@
 
 v1. 1
 
-[1\. Network communication physical layer](#)
+[1. Network communication physical layer](#1-network-communication-physical-layer)
 
-[2\. Wireless communication protocol](#)
+[2. Wireless communication protocol](#)
 
-[1\. Data packet structure](#)
+  [2.1. Data packet structure](#)
 
-[2\. Function code](#)
+  [2.2. Function code](#)
 
-[2.1 relay board passthrough command 0x C0 01](#)
+    [2.2.1 relay board passthrough command 0x C0 01](#)
 
-[2.2 custom content passthrough command 0x C0 0 2](#)
+    [2.2.2 custom content passthrough command 0x C0 0 2](#)
 
-[2.3 the RS485 passthrough command 0x C0 0 . 3](#)
+    [2.2.3 the RS485 passthrough command 0x C0 0 . 3](#)
 
-[2.11 ifttt functional configuration commands 0xC011](#)
+    [2.2.11 ifttt functional configuration commands 0xC011](#)
 
-[2.12 PC download custom content command 0x C012 Midnight](#)
+    [2.2.12 PC download custom content command 0x C012 Midnight](#)
 
-[2.13 Delete ifttt parameters command 0xC013](#)
+    [2.2.13 Delete ifttt parameters command 0xC013](#)
 
-[2.14 to delete the contents of the PC download custom command 0x C014](#)
+    [2.2.14 to delete the contents of the PC download custom command 0x C014](#)
 
-[2.21 is read ifttt Function Configuration Commands 0xC021](#)
+    [2.2.21 is read ifttt Function Configuration Commands 0xC021](#)
 
-[2.22 is reading the contents of the PC download custom command 0x C022](#)
+    [2.2.22 is reading the contents of the PC download custom command 0x C022](#)
 
-[2.23 is the read command switch 0x C023](#)
+    [2.2.23 is the read command switch 0x C023](#)
 
-[2.24 reads the analog command 0x C024](#)
+    [2.2.24 reads the analog command 0x C024](#)
 
-[2.25 reads the temperature value of the command 0x C025](#)
+    [2.2.25 reads the temperature value of the command 0x C025](#)
 
-[2.26 ifttt running status report command 0xC026](#)
+    [2.2.26 ifttt running status report command 0xC026](#)
 
-[2.31 is the main control board setting command parameter 0x C031](#)
+    [2.2.31 is the main control board setting command parameter 0x C031](#)
 
-[2.32 time synchronization command 0x C032](#)
+    [2.2.32 time synchronization command 0x C032](#)
 
-[2.33 is turned on / off automatic reporting command 0x C033](#)
+    [2.2.33 is turned on / off automatic reporting command 0x C033](#)
 
-[2.34 is read parameter command MPU 0x C034](#)
+    [2.2.34 is read parameter command MPU 0x C034](#)
 
-[2.41 is the automatic reporting command switch 0x C041](#)
+    [2.2.41 is the automatic reporting command switch 0x C041](#)
 
-[2.42 is automatically reported to the analog command 0x number C042](#)
+    [2.2.42 is automatically reported to the analog command 0x number C042](#)
 
-[2.43 is automatically reported temperature value command 0x C043](#)
+    [2.2.43 is automatically reported temperature value command 0x C043](#)
 
-[4. Communication time limit](#)
+[3. Communication time limit](#)
 
-[Revision history](#)
+[Revision history](#revision-history)
 
 ## 1. Network communication physical layer
 
@@ -2754,7 +2754,7 @@ Value
 
 When performing certain operations, the target device needs to perform certain operations to complete, which will take more time. Under normal circumstances, it is required to respond within 1s .
 
-## Revision
+## Revision history
 
 Data
 
