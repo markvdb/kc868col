@@ -168,7 +168,7 @@ This command is a transparent transmission command, and the slave computer forwa
 
 
 | byte | meaning | | example | |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | 1 | mark bit | | 0x 5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x0 3 (low byte) | 0xC0 (high byte) |
