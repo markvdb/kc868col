@@ -120,8 +120,8 @@ This command is a transparent transmission command, and the slave computer forwa
 
 ##### 3 ) Slave response
 
-| byte | meaning | | example |
-| --- | --- | --- | --- |
+| byte | meaning | | example | |
+| --- | --- | --- | --- | --- |
 | 1 | mark bit | | 0x 5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x01 (low byte) | 0xC0 (high byte) |
@@ -137,13 +137,13 @@ This command is a transparent transmission command, and the slave machine forwar
 
 ##### 2 ) Host request
 
-| byte | meaning | example |
-| --- | --- | --- |
-| 1 | mark bit | 0x 5E |
-| 1 | version number | 0x01 |
-| 2 | message type | 0x02 (low byte)/ 0xC0 (high byte) |
-| 2 | message length | N (low byte)/ N>>8 (high byte) |
-| 38 | spare | 0x00 |
+| byte | meaning | | example | |
+| --- | --- | --- | --- | --- |
+| 1 | mark bit | | 0x 5E |
+| 1 | version number | |0x01 |
+| 2 | message type | |0x02 (low byte) | 0xC0 (high byte) |
+| 2 | message length | | N (low byte) | N>>8 (high byte) |
+| 38 | spare | | 0x00 |
 | 1 | valid data | output direction | 1/0 ( 232/485 ) |
 | N-1 | valid data | custom content | 0x00 |
 
