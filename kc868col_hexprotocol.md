@@ -114,7 +114,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x01 (low byte)<br /> 0xC0 (high byte) |
-| 2 | message length | | N (low byte)< br /> N>>8 (high byte) |
+| 2 | message length | | N (low byte)<br /> N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | N | data payload  | control relay commands | 0x00 |
 
