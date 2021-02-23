@@ -207,7 +207,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 2 | message type | | 0x 11 (low byte) | 0xC0 (high byte) |
 | 2 | message length | | N (low byte) | N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | Ifttt function configuration number | 0x00 ( 1~50 ) |
+| 1 | valid data | IFTTT function configuration number | 0x00 ( 1~50 ) |
 | 1 | | number of conditions | M ( 1~10 ) |
 | 1 | | then number | K ( 1~50 ) |
 | 1 | | IFTTT runs | 0 x 00 |
@@ -220,55 +220,14 @@ This command is a transparent transmission command, and the slave computer forwa
 
 ##### 3 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 1 1 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-Operation result
-
-1/0
-
-\=1 , success
-
-\=0 , failed, data is full
+| byte | meaning | | example | |
+| --- | --- | --- | --- | --- |
+| 1 | mark bit | | 0x 5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x 1 1 (low byte)| 0xC0 (high byte) |
+| 2 | message length | | N (low byte) | N>>8 (high byte) |
+| 38 | spare | |  0x00 |
+| 1 | operation result | | 1/0 \n=1 , success\n=0 , failed, data is full |
 
 The condition type is resolved as follows:
 
