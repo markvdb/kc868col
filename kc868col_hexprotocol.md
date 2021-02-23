@@ -200,60 +200,23 @@ This command is a transparent transmission command, and the slave computer forwa
 
 ##### 2 ) Host request
 
-| byte | meaning | example |
-| --- | --- | --- |
-| 1 | mark bit | 0x 5E |
-| 1 | version number | 0x01 |
-| 2 | message type | 0x 11 (low byte)/ 0xC0 (high byte) |
-| 2 | message length | N (low byte)/ N>>8 (high byte) |
-| 38 | spare | 0x00 |
-| 1 | valid data/ Ifttt function configuration number | 0x00 ( 1~50 ) |
-
-1
-
-Number of conditions
-
-M ( 1~10 )
-
-1
-
-Then number
-
-K ( 1~50 )
-
-1
-
-I fttt runs
-
-0 x 00
-
-6
-
-Condition 1 parameters
-
-6
-
-Condition 2 parameters
-
-( M-2 ) \*6
-
-...
-
-Remaining condition type parameters
-
-3
-
-Then1 parameters
-
-3
-
-Then2 parameters
-
-( K-2 ) \*3
-
-...
-
-The remaining Then parameters
+| byte | meaning | | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x 5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x 11 (low byte)/ 0xC0 (high byte) |
+| 2 | message length | | N (low byte)/ N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | valid data | Ifttt function configuration number | 0x00 ( 1~50 ) |
+| 1 | | number of conditions | M ( 1~10 ) |
+| 1 | | then number | K ( 1~50 ) |
+| 1 | | IFTTT runs | 0 x 00 |
+| 6 | | condition 1 parameters |
+| 6 | | condition 2 parameters |
+| ( M-2 ) \*6 | | ... | remaining condition type parameters |
+| 3 | | then1 parameters | |
+| 3 | | then2 parameters | |
+| ( K-2 ) \*3 | | ... | remaining then parameters |
 
 ##### 3 ) Slave response
 
