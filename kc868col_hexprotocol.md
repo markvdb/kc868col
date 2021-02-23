@@ -185,27 +185,27 @@ This command is a transparent transmission command, and the slave computer forwa
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x03 (low byte) | 0xC0 (high byte) |
 | 2 | message length | | N (low byte) | N>>8 (high byte) |
-| 38 | spare | 0x00 |
+| 38 | spare | | 0x00 |
 | N | valid data | Control RS485 response | 0x00 |
 
-#### 2 . 11 ifttt functional configuration commands 0xC011
+#### 2.11 IFTTT functional configuration commands 0xC011
 
 ##### 1 ) Description
 
-1. Each condition parameter is 6 bytes, each output action is 3 bytes, each function has up to 10 conditions, and up to 50 action outputs. Therefore, each can occupy a space of 210Byte.
+1. Each condition parameter is 6 bytes. Each output action is 3 bytes. Each function has up to 10 conditions, and up to 50 action outputs. Therefore, each can occupy a space of (6*10+3*50)=210 bytes.
 
-2. The microcontroller RAM is 48K , 50 th ifttt function, 50 \* 210 = 10K , therefore, it supports up to 50 th ifttt function.
+2. The microcontroller has 48K RAM. 50 IFTTT functions require 50 * 210 bytes ~= 10K . Therefore, it supports up to 50 IFTTT functions.
 
 3. Download one at a time.
 
 ##### 2 ) Host request
 
-| byte | meaning | | example |
-| --- | --- | --- | --- |
+| byte | meaning | | example | |
+| --- | --- | --- | --- | --- |
 | 1 | mark bit | | 0x 5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 11 (low byte)/ 0xC0 (high byte) |
-| 2 | message length | | N (low byte)/ N>>8 (high byte) |
+| 2 | message type | | 0x 11 (low byte) | 0xC0 (high byte) |
+| 2 | message length | | N (low byte) | N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | Ifttt function configuration number | 0x00 ( 1~50 ) |
 | 1 | | number of conditions | M ( 1~10 ) |
