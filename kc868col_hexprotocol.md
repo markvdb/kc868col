@@ -585,7 +585,7 @@ Custom content output type
 | 2 | message type |  | 0x 2 6 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | IFTTT status | 0 x 00 (No. 1~ 8 ifttt )<br />0 x 01 represents the number 1 IFTTT is in Then state |
+| 1 | valid data | IFTTT status | 0 x 00 (No. 1~ 8 ifttt )<br />0x01 represents the number 1 IFTTT is in Then state |
 | 1 | valid data | IFTTT stauts | 0 x 00 (No. 9 ~ 16 ifttt )|
 | 1 | valid data | IFTTT stauts | 0 x 00 (No. 17 ~ 24 ifttt )|
 | 1 | valid data | IFTTT stauts | 0 x 00 (No. 25 ~ 32 ifttt )|
