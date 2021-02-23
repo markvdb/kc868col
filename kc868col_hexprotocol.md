@@ -116,7 +116,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 2 | message type | | 0x01 (low byte)| 0xC0 (high byte) |
 | 2 | message length | | N (low byte) | N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| N | valid data/ control relay commands | 0x00 |
+| N | valid data  | control relay commands | 0x00 |
 
 ##### 3 ) Slave response
 
