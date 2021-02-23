@@ -372,55 +372,14 @@ Custom content output type
 
 ##### 2) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 14 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Content number
-
-0x0 1 (delete one of 1~32 )
-
-0xFF (delete all)
+| byte | meaning | | example |
+|--- | --- | --- | --- |
+| 1 | mark bit | | 0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x 14 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 | |
+| 1 | valid data | content number | 0x0 1 (delete one of 1~32 )<br /> 0xFF (delete all) |
 
 #### 3 ) Slave response
 
