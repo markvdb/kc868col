@@ -1,4 +1,4 @@
-KC868-COL automation controller communication protocol
+# KC868-COL automation controller communication protocol
 
 v1. 1
 
@@ -54,18 +54,16 @@ v1. 1
 
 [Revision](#_Toc24408)
 
-1\. Network communication physical layer
-========================================
+## 1. Network communication physical layer
 
- The physical layer of the protocol is wired network communication, and the main control board is Server ;
+The physical layer of the protocol is wired network communication. The KC868-COL series device acts as a server.
+ 
+## 2. Wireless communication protocol
 
-2\. Wireless communication protocol
-===================================
 
-1\. Data packet structure
--------------------------
+### 1. Data packet structure
 
-The transmission data adopts network byte order . The basic data format is defined as follows:
+The transmission data adopts network byte order. The basic data format is defined as follows:
 
 ![](kc868col_hexprotocol_bestanden/image_0.html)
 
@@ -91,8 +89,7 @@ The communication protocol adopts the little endian mode . When the data is larg
 
 The data uses hexadecimal.
 
-2\. Function code
------------------
+### 2. Function code
 
 The function code is 1 byte and is used to select a command (read, write, response, etc.).
 
@@ -182,13 +179,13 @@ Turn on / off automatic reporting commands
 
 The function code is explained in detail as follows.
 
-### 2 .1 relay board passthrough command 0x C0 01
+#### 2 .1 relay board passthrough command 0x C0 01
 
-#### 1 ) Description
+##### 1 ) Description
 
 This command is a transparent transmission command, and the slave computer forwards the command of the upper computer control relay board;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -238,7 +235,7 @@ Control relay commands
 
 0x00
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -288,13 +285,13 @@ Control relay response
 
 0x00
 
-### 2 . 2 custom content passthrough command 0x C0 0 2
+#### 2 . 2 custom content passthrough command 0x C0 0 2
 
-#### 1 ) Description
+##### 1 ) Description
 
 This command is a transparent transmission command, and the slave machine forwards the customized content of the host computer to RS232 or RS485 ;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -350,7 +347,7 @@ Custom content
 
 0x00
 
-#### 4 ) Slave response
+##### 4 ) Slave response
 
 byte
 
@@ -400,13 +397,13 @@ answer
 
 0x00
 
-### 2 . . 3 the RS485 passthrough command 0x C0 0 . 3
+#### 2 . . 3 the RS485 passthrough command 0x C0 0 . 3
 
-#### 1 ) Description
+##### 1 ) Description
 
 This command is a transparent transmission command, and the slave computer forwards the host computer RS485 command;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -456,7 +453,7 @@ Control RS485 commands
 
 0x00
 
-#### 5 ) Slave response
+##### 5 ) Slave response
 
 byte
 
@@ -506,9 +503,9 @@ Control RS485 response
 
 0x00
 
-### 2 . 11 ifttt functional configuration commands 0xC011
+#### 2 . 11 ifttt functional configuration commands 0xC011
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. Each condition parameter is 6 bytes, each output action is 3 bytes, each function has up to 10 conditions, and up to 50 action outputs. Therefore, each can occupy a space of 210Byte ;
 
@@ -516,7 +513,7 @@ Control RS485 response
 
 3\. Download one at a time;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -612,7 +609,7 @@ Then2 parameters
 
 The remaining Then parameters
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -966,9 +963,9 @@ Output direction
 
 \=1 , RS485
 
-### 2 . 12 PC download custom content command 0x C012 Midnight
+#### 2 . 12 PC download custom content command 0x C012 Midnight
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. The host computer downloads the customized content to the main control board as an action task, waiting for the condition to trigger the output;
 
@@ -976,7 +973,7 @@ Output direction
 
 3\. Download one at a time;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -1038,7 +1035,7 @@ Custom content
 
 0x00
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -1090,15 +1087,15 @@ Operation result
 
 \=0 , failed, data is full
 
-### 2 . 13 Delete ifttt parameters command 0xC013
+#### 2 . 13 Delete ifttt parameters command 0xC013
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. Delete ifttt parameter, you can delete one or all;
 
 2\. The number range is 1~50 , and the response fails when it exceeds the range;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -1150,7 +1147,7 @@ Ifttt function number
 
 0xFF (delete all)
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -1202,15 +1199,15 @@ Operation result
 
 \=0 , failed, the number is out of range
 
-### 2 . 14 to delete the contents of the PC download custom command 0x C014
+#### 2 . 14 to delete the contents of the PC download custom command 0x C014
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. Delete the custom content data downloaded by the upper computer, you can delete one or all;
 
 2\. The number range is 1~32 , and the response fails if it exceeds the range;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -1314,15 +1311,15 @@ Operation result
 
 \=0 , failed, the number is out of range
 
-### 2 . 21 is read ifttt Function Configuration Commands 0xC021
+#### 2 . 21 is read ifttt Function Configuration Commands 0xC021
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. The upper computer reads the ifttt function configuration parameters, and reads one function parameter at a time, starting from the number 1\. If there is no corresponding ifttt function configuration, the response operation result is 0 ;
 
 2\. Ifttt function configuration is up to 50 ;
 
-#### 2 ) Host request
+###### 2 ) Host request
 
 byte
 
@@ -1370,7 +1367,7 @@ ifttt function configuration number
 
 0x01 (The first number)
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -1476,15 +1473,15 @@ Then2 parameters
 
 The remaining Then parameters
 
-### 2 . 22 is reading the contents of the PC download custom command 0x C022
+#### 2 . 22 is reading the contents of the PC download custom command 0x C022
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. The upper computer reads the upper computer to download the custom content parameters, and reads one parameter at a time, starting with number 1\. If there is no corresponding number, the response operation result is 0 ;
 
 2\. The maximum length of each custom content is 120 bytes, the minimum is 1 byte, and the maximum is 32 ;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -1532,7 +1529,7 @@ ifttt function configuration number
 
 0x01 (The first number)
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -1606,9 +1603,9 @@ Custom content
 
 0x00
 
-### 2 . 23 is the read command switch 0x C023
+#### 2 . 23 is the read command switch 0x C023
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. The host computer reads the switch value, and it can read 1 or 16 channels at a time;
 
@@ -1616,7 +1613,7 @@ Custom content
 
 3\. No. 255 , which means to read all channel switch values, and the slave returns 16 groups of data ( 16 bytes);
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -1728,9 +1725,9 @@ Switch
 
 0x01/0x00 (on / off)
 
-### 2 . 24 reads the analog command 0x C024
+#### 2 . 24 reads the analog command 0x C024
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. The upper computer reads the analog value, and it can read 1 or 16 channels at a time;
 
@@ -1738,7 +1735,7 @@ Switch
 
 3\. No. 255 , which means to read all channel analogs, and the slave returns 16 groups of data ( 32 bytes);
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -1852,9 +1849,9 @@ Value
 
 0x00 (high byte)
 
-### 2 . 25 reads the temperature value of the command 0x C025
+#### 2 . 25 reads the temperature value of the command 0x C025
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. The upper computer reads the value of the temperature sensor, and it can read 1 or 5 channels at a time;
 
@@ -1862,7 +1859,7 @@ Value
 
 3\. The number 255 means that the temperature values ​​of all channels are read, and the slave returns 5 sets of data ( 10 bytes);
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -1914,7 +1911,7 @@ Analog number
 
 \=0xFF (all 5 channels)
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -1976,9 +1973,9 @@ Value
 
 0x00 (high byte)
 
-### 2.26 ifttt running status report command 0xC026
+#### 2.26 ifttt running status report command 0xC026
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. Get ifttt T operating state, a bar ifttt time function satisfies all the conditions, state 1 , i.e. in the running Then , the state is 1 ; otherwise, the state is 0 ;
 
@@ -1986,7 +1983,7 @@ Value
 
 3 . Each represents a Ifttt , ie . 7 bytes . 5 0 th bit representatives . 5 0 th Ifttt ;
 
-#### 2 ) Slave response
+##### 2 ) Slave response
 
 byte
 
@@ -2064,9 +2061,9 @@ i fttt status
 
 High 6bit is invalid
 
-### 2 . 31 is the main control board setting command parameter 0x C031
+#### 2 . 31 is the main control board setting command parameter 0x C031
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. Actively report the temperature when the temperature change exceeds the threshold;
 
@@ -2076,7 +2073,7 @@ High 6bit is invalid
 
 4.  The temperature change threshold is 5000=50.00 degrees Celsius, and the analog value change threshold is 200=2.50V ;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -2150,7 +2147,7 @@ Reserved
 
 0x00
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -2192,13 +2189,13 @@ spare
 
 0x00
 
-### 2 . 32 time synchronization command 0x C032
+#### 2 . 32 time synchronization command 0x C032
 
-#### 1 ) Description
+##### 1 ) Description
 
 The upper computer is connected to the main control board for time synchronization;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -2278,7 +2275,7 @@ second
 
 0x00
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -2320,13 +2317,13 @@ spare
 
 0x00
 
-### 2 . 33 is turned on / off automatic reporting command 0x C033
+#### 2 . 33 is turned on / off automatic reporting command 0x C033
 
-#### 1 ) Description
+##### 1 ) Description
 
 Whether the upper computer setting is automatically reported;
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -2380,7 +2377,7 @@ Features
 
 \=0 , close reporting
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -2422,15 +2419,15 @@ spare
 
 0x00
 
-### 2 . 34 is read parameter command MPU 0x C034
+#### 2 . 34 is read parameter command MPU 0x C034
 
-#### 1 ) Description
+##### 1 ) Description
 
 The upper computer reads the temperature change threshold of the control board, the analog change threshold, and reports the switch time and clock regularly;
 
 Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 
-#### 2 ) Host request
+##### 2 ) Host request
 
 byte
 
@@ -2472,7 +2469,7 @@ spare
 
 0x00
 
-#### 3 ) Slave response
+##### 3 ) Slave response
 
 byte
 
@@ -2562,13 +2559,13 @@ Version number V1.0.2
 
 0x01
 
-### 2 . 41 is the automatic reporting command switch 0x C041
+#### 2 . 41 is the automatic reporting command switch 0x C041
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. The switch reports regularly, and the 16 channels report together;
 
-#### 2 ) Slave response
+##### 2 ) Slave response
 
 byte
 
@@ -2624,13 +2621,13 @@ Switch
 
 0x01/0x00 (on / off)
 
-### 2 . 42 is automatically reported to the analog command 0x number C042
+#### 2 . 42 is automatically reported to the analog command 0x number C042
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. When the analog quantity change exceeds the threshold, 16 channels will be reported together;
 
-#### 2 ) Slave response
+##### 2 ) Slave response
 
 byte
 
@@ -2688,13 +2685,13 @@ Value
 
 0x00 (high byte)
 
-### 2 . 43 is automatically reported temperature value command 0x C043
+#### 2 . 43 is automatically reported temperature value command 0x C043
 
-#### 1 ) Description
+##### 1 ) Description
 
 1\. When the analog quantity change exceeds the threshold, 5 channels are reported together;
 
-#### 2 ) Slave response
+##### 2 ) Slave response
 
 byte
 
@@ -2752,13 +2749,12 @@ Value
 
 0x00 (high byte)
 
-4\. Communication time limit
+## 4. Communication time limit
 ----------------------------
 
 When performing certain operations, the target device needs to perform certain operations to complete, which will take more time. Under normal circumstances, it is required to respond within 1s .
 
-Revision
-========
+## Revision
 
 Data
 
