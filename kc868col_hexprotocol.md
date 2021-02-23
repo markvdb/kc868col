@@ -139,17 +139,17 @@ This command is a transparent transmission command, and the slave machine forwar
 
 | byte | meaning | | example | |
 | --- | --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
-| 1 | version number | |0x01 |
-| 2 | message type | |0x02 (low byte) | 0xC0 (high byte) |
+| 1 | mark bit | | 0x 5E | |
+| 1 | version number | | 0x01 | |
+| 2 | message type | | 0x02 (low byte) | 0xC0 (high byte) |
 | 2 | message length | | N (low byte) | N>>8 (high byte) |
-| 38 | spare | | 0x00 |
-| 1 | valid data | output direction | 1/0 ( 232/485 ) |
-| N-1 | valid data | custom content | 0x00 |
+| 38 | spare | | 0x00 | |
+| 1 | valid data | output direction | 1/0 ( 232/485 ) | |
+| N-1 | valid data | custom content | 0x00 | |
 
 ##### 4 ) Slave response
 
-| byte | meaning | example | |
+| byte | meaning | example | | |
 | --- | --- | --- | --- | --- |
 | 1 | mark bit | | 0x 5E |
 | 1 | version number | | 0x01 |
