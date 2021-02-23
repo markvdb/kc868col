@@ -277,101 +277,26 @@ There are 3 types of Then output, the type codes are ( 0x11 , 0x12 , 0x13 ), eac
 
 Time delay type
 
-byte
-
-meaning
-
-Instance
-
-Parsing
-
-1
-
-Type code
-
-0x11
-
-2
-
-time
-
-0x05 (low byte)
-
-Delay 5 seconds, maximum 65535 seconds
-
-0x00 (high byte)
+| byte | meaning | instance | parsing |
+| --- | --- | --- | --- |
+| 1 | type code | 0x11 |
+| 2  | time | 0x05 (low byte)<br />0x00 (high byte) | delay 5 seconds, maximum 65535 seconds |
 
 Relay output type
 
-byte
-
-meaning
-
-Instance
-
-Parsing
-
-1
-
-Type code
-
-0x12
-
-1
-
-Relay number
-
-0x01
-
-The first relay
-
-1
-
-action
-
-2/1/0
-
-\=2 , means flip
-
-\=1 , means open
-
-\=0 , means closed
+| byte | meaning | instance | parsing |
+| --- | --- | --- | --- |
+| 1 | type code | 0x12 |
+| 1 | relay number | 0x01 | the first relay |
+| 1 | action | 2/1/0 | =2 , means flip<br />=1 , means open<br />=0 , means closed |
 
 Custom content output type
 
-byte
-
-meaning
-
-Instance
-
-Parsing
-
-1
-
-Type code
-
-0x13
-
-1
-
-Custom content number
-
-0x01
-
-Custom content of number 1
-
-Range ( 1~32 )
-
-1
-
-Output direction
-
-0x00
-
-\=0 , RS232
-
-\=1 , RS485
+| byte | meaning | instance | parsing |
+| --- | --- | --- | --- |
+| 1 | type code | 0x13 |
+| 1 | custom content number | 0x01 | custom content of number 1<br />range ( 1~32 )|
+| 1 | output direction | 0x00 | =0 , RS232<br />=1 , RS485 |
 
 #### 2.2.12 PC download custom content command 0xC012
 
