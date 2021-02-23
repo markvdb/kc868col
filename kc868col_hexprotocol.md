@@ -682,45 +682,13 @@ Whether the upper computer setting is automatically reported;
 
 ##### 3 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 33 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x33 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00|
 
 #### 2.2.34 is read parameter command MPU 0xC034
 
