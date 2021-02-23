@@ -149,14 +149,14 @@ This command is a transparent transmission command, and the slave machine forwar
 
 ##### 4 ) Slave response
 
-| byte | meaning | example |
-| --- | --- | --- |
-| 1 | mark bit | 0x 5E |
-| 1 | version number | 0x01 |
-| 2 | message type | 0x0 2 (low byte)/ 0xC0 (high byte) |
-| 2 | message length | N (low byte)/ N>>8 (high byte) |
-| 38 | spare | 0x00 |
-| N | valid data/ answer | 0x00 |
+| byte | meaning | example | |
+| --- | --- | --- | --- | --- |
+| 1 | mark bit | | 0x 5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x0 2 (low byte) | 0xC0 (high byte) |
+| 2 | message length | | N (low byte) | N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| N | valid data | answer | 0x00 |
 
 #### 2.3 RS485 passthrough command 0xC003
 
