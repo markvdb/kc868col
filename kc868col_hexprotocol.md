@@ -302,133 +302,43 @@ Custom content output type
 
 ##### 1 ) Description
 
-1\. The host computer downloads the customized content to the main control board as an action task, waiting for the condition to trigger the output;
+1. The host computer downloads the customized content to the main control board as an action task, waiting for the condition to trigger the output.
 
-2\. The maximum length of each custom content is 120 bytes, the minimum is 1 byte, and the maximum is 32 ;
+2. The maximum length of each custom content is 120 bytes, the minimum is 1 byte, and the maximum is 32.
 
-3\. Download one at a time;
+3. Download one at a time.
 
 ##### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 12 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Content number
-
-0x00
-
-1
-
-Content length
-
-0x00
-
-N-2
-
-Custom content
-
-0x00
+| byte | meaning | | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x 5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x 12 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | valid data | content number | 0x00 |
+| 1 | | content length | 0x00 |
+| n-2 | | custom content | 0x00 |
 
 ##### 3 ) Slave response
 
-byte
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x 5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x 12 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | operation result | 1/0<br />=1 , success<br />=0 , failed, data is full |
 
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 12 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-Operation result
-
-1/0
-
-\=1 , success
-
-\=0 , failed, data is full
-
-#### 2.2.13 Delete ifttt parameters command 0xC013
+#### 2.2.13 Delete IFTTT parameters command 0xC013
 
 ##### 1 ) Description
 
-1. Delete ifttt parameter, you can delete one or all;
+1. Delete ifttt parameter. You can delete one or all.
 
-2. The number range is 1~50 , and the response fails when it exceeds the range;
+2. The number range is 1~50. The response fails when it exceeds the range.
 
 ##### 2 ) Host request
 
