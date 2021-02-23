@@ -109,7 +109,7 @@ This command is a transparent transmission command, and the slave computer forwa
 
 ##### 2 ) Host request
 
-| byte | <th colspan=2> meaning | example |
+| byte | meaning | | example |
 | --- | --- | --- | --- |
 | 1 | <td colspan=2> mark bit | | 0x 5E |
 | 1 | <td colspan=2> version number | 0x01 |
