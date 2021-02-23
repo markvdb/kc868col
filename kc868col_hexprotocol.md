@@ -710,13 +710,13 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 
 ##### 3 ) Slave response
 
-| byte | meaning | example |
-| --- | --- | --- |
-| 1 | mark bit | 0x5E |
-| 1 | version number | 0x01 |
-| 2 | message type | 0x34 (low byte)<br />0xC0 (high byte) |
-| 2 | message length | N (low byte)<br />N>>8 (high byte) |
-| 38 | spare | 0x00 |
+| byte | meaning | | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | |0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x34 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare |  | 0x00 |
 | 2 | valid data | Temperature change threshold | 0x00 (low byte)<br />0x00 (high byte) |
 | 2 | | analog quantity change threshold | 0x00 (low byte)<br />0x00 (high byte) |
 | 2 | | time reporting | 0x00 (low byte)<br />0x00 (high byte) |
