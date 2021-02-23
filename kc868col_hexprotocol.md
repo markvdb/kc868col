@@ -61,7 +61,7 @@ The physical layer of the protocol is wired network communication. The KC868-COL
 ## 2. Wireless communication protocol
 
 
-### 1. Data packet structure
+### 2.1. Data packet structure
 
 The transmission data adopts network byte order. The basic data format is defined as follows:
 1) data header: 44 bytes
@@ -79,7 +79,7 @@ The communication protocol uses little endian mode. When the data is larger than
 
 The data uses hexadecimal.
 
-### 2. Function code
+### 2.2. Function code
 
 The function code is 1 byte and is used to select a command (read, write, response, etc.).
 
@@ -101,7 +101,7 @@ The function code is 1 byte and is used to select a command (read, write, respon
 
 Every function code is explained in detail below.
 
-#### 2.1 relay board passthrough command 0xC001
+#### 2.2.1 relay board passthrough command 0xC001
 
 ##### 1 ) Description
 
@@ -129,7 +129,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 38 | spare | | 0x00 |
 | N | valid data  | control relay response | 0x00 |
 
-#### 2.2 custom content passthrough command 0xC002
+#### 2.2.2 custom content passthrough command 0xC002
 
 ##### 1 ) Description
 
@@ -158,7 +158,7 @@ This command is a transparent transmission command, and the slave machine forwar
 | 38 | spare | | 0x00 |
 | N | valid data | answer | 0x00 |
 
-#### 2.3 RS485 passthrough command 0xC003
+#### 2.2.3 RS485 passthrough command 0xC003
 
 ##### 1 ) Description
 
@@ -188,7 +188,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 38 | spare | | 0x00 |
 | N | valid data | Control RS485 response | 0x00 |
 
-#### 2.11 IFTTT functional configuration commands 0xC011
+#### 2.2.11 IFTTT functional configuration commands 0xC011
 
 ##### 1 ) Description
 
@@ -465,129 +465,40 @@ Custom content output type
 | 1 | | total content  | 0x00 |
 | 1 | | content number | 0x00 |
 | 1 | | content length | 0x00 |
-| N-4 | custom content | 0x00 |
+| N-4 | | custom content | 0x00 |
 
-#### 2 . 23 is the read command switch 0xC023
+#### 2.2.23 read command switch 0xC023
 
 ##### 1 ) Description
 
-1\. The host computer reads the switch value, and it can read 1 or 16 channels at a time;
+1. The host computer reads the switch value, and it can read 1 or 16 channels at a time.
 
-2\. Number 1 , which means to read the switch value of channel 1 , and the slave returns 1 group of data ( 1 byte);
+2. Number 1 means to read the switch value of channel 1 , and the slave returns 1 group of data ( 1 byte).
 
-3\. No. 255 , which means to read all channel switch values, and the slave returns 16 groups of data ( 16 bytes);
+3. No. 255 means to read all channel switch values, and the slave returns 16 groups of data ( 16 bytes).
 
 ##### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 23 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-Analog number
-
-0x01 = (first 1 channels)
-
-\=0x10 (the 16th channel)
-
-\=0xFF (all 16 channels)
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x23 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
 
 #### 3 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 23 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Analog number
-
-0x01 = (first 1 channels)
-
-\=0x10 (the 16th channel)
-
-\=0xFF (all 16 channels)
-
-1
-
-Switch
-
-0x01/0x00 (on / off)
+| byte | meaning | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x23 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | valid data | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
+| 1 | switch | | 0x01/0x00 (on / off) |
 
 #### 2 . 24 reads the analog command 0xC024
 
