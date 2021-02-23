@@ -578,7 +578,7 @@ Custom content output type
 
 ##### 2 ) Slave response
 
-| byte | meaning | example |
+| byte | meaning | | example |
 | --- | --- | --- | --- |
 | 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
