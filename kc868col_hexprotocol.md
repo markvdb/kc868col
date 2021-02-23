@@ -498,131 +498,40 @@ Custom content output type
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
-| 1 | switch | | 0x01/0x00 (on / off) |
+| 1 | | switch | 0x01/0x00 (on / off) |
 
 #### 2 . 24 reads the analog command 0xC024
 
 ##### 1 ) Description
 
-1\. The upper computer reads the analog value, and it can read 1 or 16 channels at a time;
+1. The upper computer reads the analog value, and it can read 1 or 16 channels at a time;
 
-2\. No. 1 , means to read the analog quantity of channel 1 , and the slave returns 1 group of data ( 2 bytes);
+2. No. 1 , means to read the analog quantity of channel 1 , and the slave returns 1 group of data ( 2 bytes);
 
-3\. No. 255 , which means to read all channel analogs, and the slave returns 16 groups of data ( 32 bytes);
+3. No. 255 , which means to read all channel analogs, and the slave returns 16 groups of data ( 32 bytes);
 
 ##### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 24 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-Analog number
-
-0x01 = (first 1 channels)
-
-\=0x10 (the 16th channel)
-
-\=0xFF (all 16 channels)
+| byte | meaning | example |
+| ---  | --- | --- |
+| 1 | mark bit | 0x 5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x 24 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | Analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />0xFF (all 16 channels) |
 
 #### 3 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 24 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Analog number
-
-0x01 = (first 1 channels)
-
-\=0x10 (the 16th channel)
-
-\=0xFF (all 16 channels)
-
-2
-
-Value
-
-0x00 (low byte)
-
-0x00 (high byte)
+| byte | meaning | |example |
+| --- | --- | --- | --- |
+| 1 | mark bit |  | 0x 5E |
+| 1 | version number |  | 0x01 |
+| 2 | message type |  | 0x 24 (low byte)<br />0xC0 (high byte) |
+| 2 | message length |  | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare |  | 0x00 |
+| 1 | valid data | analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />=0xFF (all 16 channels) |
+| 2 |  | value | 0x00 (low byte)<br />0x00 (high byte) |
 
 #### 2 . 25 reads the temperature value of the command 0xC025
 
