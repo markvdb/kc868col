@@ -619,7 +619,7 @@ High 6bit is invalid
 | 2 | valid data | Temperature change threshold | 0x00 (low byte)<br />0x00 (high byte) |
 | 2 | valid data | analog quantity change threshold | 0x00 (low byte)<br />0x00 (high byte) |
 | 2 | valid data | time reporting | 0x00 (low byte)<br />0x00 (high byte) |
-| 2 | | reserved | 0x00 |
+| 2 |  | reserved | 0x00 |
 
 ##### 3 ) Slave response
 
