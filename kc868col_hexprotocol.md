@@ -728,63 +728,19 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 
 ##### 1 ) Description
 
-1\. The switch reports regularly, and the 16 channels report together;
+1. The switch reports regularly, and the 16 channels report together.
 
 ##### 2 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 41 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Analog number
-
-0xFF (all 16 channels)
-
-16
-
-Switch
-
-0x01/0x00 (on / off)
+| byte | meaning | | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x 41 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | valid data | analog number | 0xFF (all 16 channels) |
+| 16 | | switch | 0x01/0x00 (on / off) |
 
 #### 2.2.42 is automatically reported to the analog command 0xC042
 
