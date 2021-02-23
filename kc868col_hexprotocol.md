@@ -4,51 +4,51 @@ v1. 1
 
 [1. Network communication physical layer](#1-network-communication-physical-layer)
 
-[2. Wireless communication protocol](#)
+[2. Wireless communication protocol](#2-wireless-communication-protocol)
 
   [2.1. Data packet structure](#)
 
   [2.2. Function code](#)
 
-   [2.2.1 relay board passthrough command 0x C0 01](#)
+   [2.2.1 relay board passthrough command 0xC001](#)
 
-   [2.2.2 custom content passthrough command 0x C0 0 2](#)
+   [2.2.2 custom content passthrough command 0xC002](#)
 
-   [2.2.3 the RS485 passthrough command 0x C0 0 . 3](#)
+   [2.2.3 the RS485 passthrough command 0xC003](#)
 
    [2.2.11 ifttt functional configuration commands 0xC011](#)
 
-   [2.2.12 PC download custom content command 0x C012 Midnight](#)
+   [2.2.12 PC download custom content command 0xC012](#)
 
    [2.2.13 Delete ifttt parameters command 0xC013](#)
 
-   [2.2.14 to delete the contents of the PC download custom command 0x C014](#)
+   [2.2.14 to delete the contents of the PC download custom command 0xC014](#)
 
    [2.2.21 is read ifttt Function Configuration Commands 0xC021](#)
 
-   [2.2.22 is reading the contents of the PC download custom command 0x C022](#)
+   [2.2.22 is reading the contents of the PC download custom command 0xC022](#)
 
-   [2.2.23 is the read command switch 0x C023](#)
+   [2.2.23 is the read command switch 0xC023](#)
 
-   [2.2.24 reads the analog command 0x C024](#)
+   [2.2.24 reads the analog command 0xC024](#)
 
-   [2.2.25 reads the temperature value of the command 0x C025](#)
+   [2.2.25 reads the temperature value of the command 0xC025](#)
 
    [2.2.26 ifttt running status report command 0xC026](#)
 
-   [2.2.31 is the main control board setting command parameter 0x C031](#)
+   [2.2.31 is the main control board setting command parameter 0xC031](#)
 
-   [2.2.32 time synchronization command 0x C032](#)
+   [2.2.32 time synchronization command 0xC032](#)
 
-   [2.2.33 is turned on / off automatic reporting command 0x C033](#)
+   [2.2.33 is turned on / off automatic reporting command 0xC033](#)
 
-   [2.2.34 is read parameter command MPU 0x C034](#)
+   [2.2.34 is read parameter command MPU 0xC034](#)
 
-   [2.2.41 is the automatic reporting command switch 0x C041](#)
+   [2.2.41 is the automatic reporting command switch 0xC041](#)
 
-   [2.2.42 is automatically reported to the analog command 0x number C042](#)
+   [2.2.42 is automatically reported to the analog command 0xC042](#)
 
-   [2.2.43 is automatically reported temperature value command 0x C043](#)
+   [2.2.43 is automatically reported temperature value command 0xC043](#)
 
 [3. Communication time limit](#)
 
@@ -179,7 +179,7 @@ Turn on / off automatic reporting commands
 
 The function code is explained in detail as follows.
 
-#### 2 .1 relay board passthrough command 0x C0 01
+#### 2 .1 relay board passthrough command 0xC001
 
 ##### 1 ) Description
 
@@ -285,7 +285,7 @@ Control relay response
 
 0x00
 
-#### 2 . 2 custom content passthrough command 0x C0 0 2
+#### 2 . 2 custom content passthrough command 0xC002
 
 ##### 1 ) Description
 
@@ -397,7 +397,7 @@ answer
 
 0x00
 
-#### 2 . . 3 the RS485 passthrough command 0x C0 0 . 3
+#### 2 . . 3 the RS485 passthrough command 0xC003
 
 ##### 1 ) Description
 
@@ -963,7 +963,7 @@ Output direction
 
 \=1 , RS485
 
-#### 2 . 12 PC download custom content command 0x C012 Midnight
+#### 2.2.12 PC download custom content command 0xC012
 
 ##### 1 ) Description
 
@@ -1087,13 +1087,13 @@ Operation result
 
 \=0 , failed, data is full
 
-#### 2 . 13 Delete ifttt parameters command 0xC013
+#### 2.2.13 Delete ifttt parameters command 0xC013
 
 ##### 1 ) Description
 
-1\. Delete ifttt parameter, you can delete one or all;
+1. Delete ifttt parameter, you can delete one or all;
 
-2\. The number range is 1~50 , and the response fails when it exceeds the range;
+2. The number range is 1~50 , and the response fails when it exceeds the range;
 
 ##### 2 ) Host request
 
@@ -1199,7 +1199,7 @@ Operation result
 
 \=0 , failed, the number is out of range
 
-#### 2 . 14 to delete the contents of the PC download custom command 0x C014
+#### 2 . 14 to delete the contents of the PC download custom command 0xC014
 
 ##### 1 ) Description
 
@@ -1473,7 +1473,7 @@ Then2 parameters
 
 The remaining Then parameters
 
-#### 2 . 22 is reading the contents of the PC download custom command 0x C022
+#### 2 . 22 is reading the contents of the PC download custom command 0xC022
 
 ##### 1 ) Description
 
@@ -1603,7 +1603,7 @@ Custom content
 
 0x00
 
-#### 2 . 23 is the read command switch 0x C023
+#### 2 . 23 is the read command switch 0xC023
 
 ##### 1 ) Description
 
@@ -1725,7 +1725,7 @@ Switch
 
 0x01/0x00 (on / off)
 
-#### 2 . 24 reads the analog command 0x C024
+#### 2 . 24 reads the analog command 0xC024
 
 ##### 1 ) Description
 
@@ -1849,7 +1849,7 @@ Value
 
 0x00 (high byte)
 
-#### 2 . 25 reads the temperature value of the command 0x C025
+#### 2 . 25 reads the temperature value of the command 0xC025
 
 ##### 1 ) Description
 
@@ -1973,7 +1973,7 @@ Value
 
 0x00 (high byte)
 
-#### 2.26 ifttt running status report command 0xC026
+#### 2.2.26 ifttt running status report command 0xC026
 
 ##### 1 ) Description
 
@@ -2061,7 +2061,7 @@ i fttt status
 
 High 6bit is invalid
 
-#### 2 . 31 is the main control board setting command parameter 0x C031
+#### 2.2.31 is the main control board setting command parameter 0xC031
 
 ##### 1 ) Description
 
@@ -2189,7 +2189,7 @@ spare
 
 0x00
 
-#### 2 . 32 time synchronization command 0x C032
+#### 2.2.32 time synchronization command 0xC032
 
 ##### 1 ) Description
 
@@ -2317,7 +2317,7 @@ spare
 
 0x00
 
-#### 2 . 33 is turned on / off automatic reporting command 0x C033
+#### 2.2.33 is turned on / off automatic reporting command 0xC033
 
 ##### 1 ) Description
 
@@ -2419,7 +2419,7 @@ spare
 
 0x00
 
-#### 2 . 34 is read parameter command MPU 0x C034
+#### 2.2.34 is read parameter command MPU 0xC034
 
 ##### 1 ) Description
 
@@ -2559,7 +2559,7 @@ Version number V1.0.2
 
 0x01
 
-#### 2 . 41 is the automatic reporting command switch 0x C041
+#### 2.2.41 is the automatic reporting command switch 0xC041
 
 ##### 1 ) Description
 
@@ -2621,7 +2621,7 @@ Switch
 
 0x01/0x00 (on / off)
 
-#### 2 . 42 is automatically reported to the analog command 0x number C042
+#### 2.2.42 is automatically reported to the analog command 0xC042
 
 ##### 1 ) Description
 
@@ -2685,7 +2685,7 @@ Value
 
 0x00 (high byte)
 
-#### 2 . 43 is automatically reported temperature value command 0x C043
+#### 2.2.43 is automatically reported temperature value command 0xC043
 
 ##### 1 ) Description
 
@@ -2756,33 +2756,19 @@ When performing certain operations, the target device needs to perform certain o
 
 ## Revision history
 
-Data
+Date 20200308
 
-Version
+Version 1 .0
 
-Description
+Description Created document.
 
-Author
-
-20200308
-
-1 .0
-
-Created document.
-
-KinCony IOT
+Author KinCony IOT
 
 amend record
 
-1.  0x C034 command, the reply data adds 1 byte (automatically reported flag) \+ software version number;
-2.  0x C0 01 command, reply to increase the reply content of the relay;
-3.  0x C0 0 2 command, response to increase valid data;
-4.  0x C0 0 3 command, add RS485 reply content in response;
+1.  0x C034 command, the reply data adds 1 byte (automatically reported flag) + software version number;
+2.  0x C001 command, reply to increase the reply content of the relay;
+3.  0x C002 command, response to increase valid data;
+4.  0x C003 command, add RS485 reply content in response;
 5.  0xC021 command, add a data bit;
 6.  0xC011 command and 0xC012 command response add a data bit;
-
-![Google Translate](kc868col_hexprotocol_bestanden/translate_24dp.png)
-
-![](kc868col_hexprotocol_bestanden/iws_n.png)![](kc868col_hexprotocol_bestanden/iws_n.png)![](kc868col_hexprotocol_bestanden/iws_w.png)![](kc868col_hexprotocol_bestanden/iws_e.png)![](kc868col_hexprotocol_bestanden/iws_s.png)![](kc868col_hexprotocol_bestanden/iws_s.png)![](kc868col_hexprotocol_bestanden/iws_c.png)
-
-![](kc868col_hexprotocol_bestanden/iw_n.png)![](kc868col_hexprotocol_bestanden/iw_n.png)![](kc868col_hexprotocol_bestanden/iw_w.png)![](kc868col_hexprotocol_bestanden/iw_e.png)![](kc868col_hexprotocol_bestanden/iw_s0.png)![](kc868col_hexprotocol_bestanden/iw_s0.png)![](kc868col_hexprotocol_bestanden/iw_c.png)
