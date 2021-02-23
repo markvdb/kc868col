@@ -110,6 +110,7 @@ This command is a transparent transmission command, and the slave computer forwa
 ##### 2 ) Host request
 
 | byte | meaning | example |
+| --- | --- | --- |
 | 1 | mark bit | 0x 5E |
 | 1 | version number | 0x01 |
 | 2 | message type | 0x01 (low byte)/ 0xC0 (high byte) |
@@ -119,53 +120,14 @@ This command is a transparent transmission command, and the slave computer forwa
 
 ##### 3 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x01 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-N
-
-valid data
-
-Control relay response
-
-0x00
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x 5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x01 (low byte)/ 0xC0 (high byte) |
+| 2 | message length | N (low byte)/ N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| N | valid data/control relay response | 0x00 |
 
 #### 2 . 2 custom content passthrough command 0xC002
 
