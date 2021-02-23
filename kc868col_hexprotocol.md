@@ -1,9 +1,3 @@
-(function(){/\* Copyright The Closure Library Authors. SPDX-License-Identifier: Apache-2.0 \*/ (function(){function e(g){this.t={};this.tick=function(h,k,f){this.t\[h\]=\[void 0!=f?f:(new Date).getTime(),k\];if(void 0==f)try{window.console.timeStamp("CSI/"+h)}catch(m){}};this.getStartTickTime=function(){return this.t.start\[0\]};this.tick("start",null,g)}var a;if(window.performance)var d=(a=window.performance.timing)&&a.responseStart;var l=0<d?new e(d):new e;window.jstiming={Timer:e,load:l};if(a){var b=a.navigationStart;0<b&&d>=b&&(window.jstiming.srt=d-b)}if(a){var c=window.jstiming.load;0<b&&d>= b&&(c.tick("\_wtsrt",void 0,b),c.tick("wtsrt\_","\_wtsrt",d),c.tick("tbsd\_","wtsrt\_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),c&&0<b&&(c.tick("\_tbnd",void 0,window.chrome.csi().startE),c.tick("tbnd\_","\_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,c&&0<b&&(c.tick("\_tbnd",void 0,window.external.startE),c.tick("tbnd\_","\_tbnd",b))),a&&(window.jstiming.pt=a)}catch(g){}})();}).call(window); \_intlStrings.\_originalText = "Originele tekst in het Chinees:";\_intlStrings.\_interfaceDirection="ltr";\_intlStrings.\_interfaceAlign="left";\_intlStrings.\_langpair="zh-CN|en";\_intlStrings.\_feedbackUrl="https://translate.google.com/translate\_suggestion";\_intlStrings.\_currentBy="Huidige vertaling op %1$s door %2$s";\_intlStrings.\_unknown="onbekend";\_intlStrings.\_suggestTranslation="Een betere vertaling voorstellen" ;\_intlStrings.\_submit="Bijdragen";\_intlStrings.\_suggestThanks="Bedankt dat je een suggestie voor de vertaling hebt verzonden naar Google Translate.";\_intlStrings.\_reverse=false;\_intlStrings.\_staticContentPath="https://www.gstatic.com/translate/infowindow/";.google-src-text {display: none !important} .google-src-active-text {display: block!important;color:black!important; font-size:12px!important;font-family:arial,sans-serif!important}.google-src-active-text a {font-size:12px!important}.google-src-active-text a:link {color:#00c!important;text-decoration:underline!important}.google-src-active-text a:visited {color:purple!important;text-decoration:underline!important}.google-src-active-text a:active {color:red!important;text-decoration:underline!important} .spinner-container { width:25%; top:20px; left:50%; margin-left:-12.5%; border-radius:8px; position:fixed; text-align:center; box-shadow:0 0 10px rgba(0,0,0,0.24); background:#fff; overflow:hidden; } .spinner-container p{ font-family:'Roboto', Arial, sans-serif; color:rgba(0,0,0,0.87); margin:12px 0 16px 0; padding:0; font-size:12px; } .spinner-container img{ width:22px; height:22px; margin:16px 0 0; padding:0; } 
-
-![](kc868col_hexprotocol_bestanden/progress_spinner_color_20dp2x.gif)
-
-Wordt vertaald...
-
 KC868-COL automation controller communication protocol
 
 v1. 1
@@ -2774,7 +2768,7 @@ Description
 
 Author
 
-20 200308
+20200308
 
 1 .0
 
@@ -2791,18 +2785,7 @@ amend record
 5.  0xC021 command, add a data bit;
 6.  0xC011 command and 0xC012 command response add a data bit;
 
-\_addload(function(){\_setupIW('com');\_csi('zh-CN','en','KC868-COL-protocol\_20200705.docx');}); function gtElInit() { var lib = new google.translate.TranslateService(); lib.setCheckVisibility(false); lib.translatePage('zh-CN', 'en', function (progress, done, error) { if (progress == 100 || done || error) { document.getElementById("gt-dt-spinner").style.display = "none"; } }); }
-
 ![Google Translate](kc868col_hexprotocol_bestanden/translate_24dp.png)
-
-Oorspronkelijke tekst
-=====================
-
-2\. 编号1，表示读取通道1的模拟量，从机返回1组数据（2个字节）；
-
-Een betere vertaling bijdragen
-
-* * *
 
 ![](kc868col_hexprotocol_bestanden/iws_n.png)![](kc868col_hexprotocol_bestanden/iws_n.png)![](kc868col_hexprotocol_bestanden/iws_w.png)![](kc868col_hexprotocol_bestanden/iws_e.png)![](kc868col_hexprotocol_bestanden/iws_s.png)![](kc868col_hexprotocol_bestanden/iws_s.png)![](kc868col_hexprotocol_bestanden/iws_c.png)
 
