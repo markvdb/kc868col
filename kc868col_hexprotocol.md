@@ -500,7 +500,7 @@ Custom content output type
 | 1 | valid data | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
 | 1 | | switch | 0x01/0x00 (on / off) |
 
-#### 2 . 24 reads the analog command 0xC024
+#### 2.2.24 reads the analog command 0xC024
 
 ##### 1 ) Description
 
@@ -533,129 +533,38 @@ Custom content output type
 | 1 | valid data | analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />=0xFF (all 16 channels) |
 | 2 |  | value | 0x00 (low byte)<br />0x00 (high byte) |
 
-#### 2 . 25 reads the temperature value of the command 0xC025
+#### 2.2.25 reads the temperature value of the command 0xC025
 
 ##### 1 ) Description
 
-1\. The upper computer reads the value of the temperature sensor, and it can read 1 or 5 channels at a time;
+1. The upper computer reads the value of the temperature sensor. It can read 1 or 5 channels at a time.
 
-2\. Number 1 , which means to read the temperature value of channel 1 , and the slave returns 1 group of data ( 2 bytes);
+2. Number 1 , which means to read the temperature value of channel 1 , and the slave returns 1 group of data ( 2 bytes).
 
-3\. The number 255 means that the temperature values ​​of all channels are read, and the slave returns 5 sets of data ( 10 bytes);
+3. The number 255 means that the temperature values of all channels are read, and the slave returns 5 sets of data ( 10 bytes).
 
 ##### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 25 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-Analog number
-
-0x01 = (first 1 channels)
-
-\=0x04 (the 4th channel)
-
-\=0xFF (all 5 channels)
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x25 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | analog number | 0x01 = (first 1 channels)<br />=0x04 (the 4th channel)<br />=0xFF (all 5 channels) |
 
 ##### 3 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 25 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Analog number
-
-0x01 = (first 1 channels)
-
-\=0x04 (the 4th channel)
-
-\=0xFF (all 5 channels)
-
-2
-
-Value
-
-0x00 (low byte)
-
-0x00 (high byte)
+| byte | meaning | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x25 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | valid data | analog number | 0x01 = (first 1 channels)<br />=0x04 (the 4th channel)<br />=0xFF (all 5 channels) |
+| 2 | value |  | 0x00 (low byte)<br />0x00 (high byte) |
 
 #### 2.2.26 ifttt running status report command 0xC026
 
