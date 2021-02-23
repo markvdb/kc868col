@@ -67,23 +67,13 @@ The transmission data adopts network byte order. The basic data format is define
 1) data header: 44 bytes
 2) data content: n bytes
 
- The data header part is defined as follows:
-
-![](kc868col_hexprotocol_bestanden/image_1.html)
-
- Field description:
-
- 1) mark bit: 0x5E (1 byte)
-
- 2) version number: 0x01  (1 byte)
-
- 3) message type: used to distinguish data or instruction type (see message type definition) (2 bytes)
-
- 4) data length: the length of the data content excluding the header part (2 bytes)
-
- 5) device ID: Serial number of the device ( string length does not exceed 28 bytes ) 
-
- 6) extended data: varies according to the message type (up to 10 bytes)
+The data header is defined as follows: 
+ 1. mark bit: 0x5E (1 byte)
+ 2. version number: 0x01  (1 byte)
+ 3. message type: used to distinguish data or instruction type (see message type definition) (2 bytes)
+ 4. data length: the length of the data content excluding the header part (2 bytes)
+ 5. device ID: Serial number of the device ( string length does not exceed 28 bytes ) 
+ 6. extended data: varies according to the message type (up to 10 bytes)
 
 The communication protocol uses little endian mode. When the data is larger than 1 byte, the high bit of the data is placed in the high address;
 
@@ -93,91 +83,23 @@ The data uses hexadecimal.
 
 The function code is 1 byte and is used to select a command (read, write, response, etc.).
 
-Function code (host request)
+| Function code (host request) | Function code (slave response) | meaning |
+| --- | --- | --- |
+| 0x C0 01 | 0x C0 01 | relay board transparent transmission command |
+|0x C0 02 | 0x C0 02 | RS232 transparent transmission command |
+| 0x C003 | 0x C003 | RS485 transparent transmission command |
+| 0x C011 | 0x C011 | Ifttt function configuration command |
+| 0x C012 | 0x C012 | PC download custom content command |
+| 0x C021 | 0x C021 | read Ifttt function configuration command |
+| 0x C022 | 0x C022 | Read command to download custom content from upper computer |
+| 0x C023 | 0x C023 | Read switch command |
+| 0x C024 | 0x C024 | Read analog command |
+| 0x C025 | 0x C025 | Read temperature value command |
+| 0x C031 | 0x C031 | Main control board parameter setting command |
+| 0x C032 | 0x C032 | Time synchronization command |
+| 0x C033 | 0x C033 | Turn on / off automatic reporting commands |
 
-Function code (slave response)
-
-meaning
-
-0x C0 01
-
-0x C0 01
-
-Relay board transparent transmission command
-
-0x C0 02
-
-0x C0 02
-
-RS232 transparent transmission command
-
-0x C003
-
-0x C003
-
-RS485 transparent transmission command
-
-0x C011
-
-0x C011
-
-Ifttt function configuration command
-
-0x C012
-
-0x C012
-
-PC download custom content command
-
-0x C021
-
-0x C021
-
-Read Ifttt function configuration command
-
-0x C022
-
-0x C022
-
-Read command to download custom content from upper computer
-
-0x C023
-
-0x C023
-
-Read switch command
-
-0x C024
-
-0x C024
-
-Read analog command
-
-0x C025
-
-0x C025
-
-Read temperature value command
-
-0x C031
-
-0x C031
-
-Main control board parameter setting command
-
-0x C032
-
-0x C032
-
-Time synchronization command
-
-0x C033
-
-0x C033
-
-Turn on / off automatic reporting commands
-
-The function code is explained in detail as follows.
+Every function code is explained in detail below.
 
 #### 2 .1 relay board passthrough command 0xC001
 
