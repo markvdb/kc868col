@@ -64,8 +64,8 @@ The physical layer of the protocol is wired network communication. The KC868-COL
 ### 1. Data packet structure
 
 The transmission data adopts network byte order. The basic data format is defined as follows:
-
-![](kc868col_hexprotocol_bestanden/image_0.html)
+1) data header: 44 bytes
+2) data content: n bytes
 
  The data header part is defined as follows:
 
@@ -73,19 +73,19 @@ The transmission data adopts network byte order. The basic data format is define
 
  Field description:
 
- Mark bit: 0x5E 
+ 1) mark bit: 0x5E (1 byte)
 
- Version number: 0x01  
+ 2) version number: 0x01  (1 byte)
 
- Message type: used to distinguish data or instruction type (see message type definition) 
+ 3) message type: used to distinguish data or instruction type (see message type definition) (2 bytes)
 
- Data length: the length of the data content excluding the header part 
+ 4) data length: the length of the data content excluding the header part (2 bytes)
 
- Device ID: Serial number of the device ( string length does not exceed 28 bytes ) 
+ 5) device ID: Serial number of the device ( string length does not exceed 28 bytes ) 
 
- Extended data: varies according to the message type 
+ 6) extended data: varies according to the message type (up to 10 bytes)
 
-The communication protocol adopts the little endian mode . When the data is larger than 1 byte, the high bit of the data is placed in the high address;
+The communication protocol uses little endian mode. When the data is larger than 1 byte, the high bit of the data is placed in the high address;
 
 The data uses hexadecimal.
 
