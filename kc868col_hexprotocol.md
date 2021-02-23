@@ -362,7 +362,7 @@ Custom content output type
 | 38 | spare | 0x00 |
 | 1 | operation result | 1/0<br />=1 , success<br />=0 , failed, the number is out of range |
 
-#### 2.14 to delete the contents of the PC download custom command 0xC014
+#### 2.2.14 to delete the contents of the PC download custom command 0xC014
 
 ##### 1) Description
 
@@ -376,354 +376,96 @@ Custom content output type
 |--- | --- | --- | --- |
 | 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
-| 2 | message type | | 0x 14 (low byte)<br />0xC0 (high byte) |
+| 2 | message type | | 0x14 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 | |
-| 1 | valid data | content number | 0x0 1 (delete one of 1~32 )<br /> 0xFF (delete all) |
+| 1 | valid data | content number | 0x01 (delete one of 1~32 )<br /> 0xFF (delete all) |
 
 #### 3 ) Slave response
 
-byte
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x 14 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | operation result | 1/0<br />=1 , success<br />\=0 , failed, the number is out of range |
 
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 14 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-Operation result
-
-1/0
-
-\=1 , success
-
-\=0 , failed, the number is out of range
-
-#### 2 . 21 is read ifttt Function Configuration Commands 0xC021
+#### 2.2.21 Read IFTTT function configuration commands 0xC021
 
 ##### 1 ) Description
 
-1\. The upper computer reads the ifttt function configuration parameters, and reads one function parameter at a time, starting from the number 1\. If there is no corresponding ifttt function configuration, the response operation result is 0 ;
+1. The upper computer reads the IFTTT function configuration parameters. It reads one function parameter at a time, starting from the number 1. If there is no corresponding IFTTT function configuration, the response operation result is 0.
 
-2\. Ifttt function configuration is up to 50 ;
+2. IFTTT function configuration is up to 50.
 
 ###### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 21 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-ifttt function configuration number
-
-0x01 (The first number)
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x 21 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | ifttt function configuration number | 0x01 (the first number) |
 
 ##### 3 ) Slave response
 
-byte
+| byte | meaning | | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x 5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x 21 (low byte) <br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare |  | 0x00 |
+| 1 | valid data | operation result | 0x01/0x00 (success / failure) |
+| 1 | | total number of IFTTT functions | 0x00 |
+| 1 | | IFTTT function configuration number | 0x00 ( 1~50 ) |
+| 1 | | number of conditions | M ( 1~10 ) |
+| 1 | | then number | K ( 1~50 ) |
+| 1 | | then times |
+| 6 | | condition 1 parameters |
+| 6 | | condition 2 parameters |
+| ( M-2 ) \*6 | |... | remaining condition type parameters |
+| 3 | | then1 parameters | |
+| 3 | | then2 parameters | |
+| ( K-2 ) \*3 | | ... | the remaining Then parameters |
 
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 21 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Operation result
-
-0x01/0x00 (success / failure)
-
-1
-
-Total number of Ifttt functions
-
-0x00
-
-1
-
-Ifttt function configuration number
-
-0x00 ( 1~50 )
-
-1
-
-Number of conditions
-
-M ( 1~10 )
-
-1
-
-Then number
-
-K ( 1~50 )
-
-1
-
-Then times
-
-6
-
-Condition 1 parameters
-
-6
-
-Condition 2 parameters
-
-( M-2 ) \*6
-
-...
-
-Remaining condition type parameters
-
-3
-
-Then1 parameters
-
-3
-
-Then2 parameters
-
-( K-2 ) \*3
-
-...
-
-The remaining Then parameters
-
-#### 2 . 22 is reading the contents of the PC download custom command 0xC022
+#### 2.2.22 reading the contents of the PC download custom command 0xC022
 
 ##### 1 ) Description
 
-1\. The upper computer reads the upper computer to download the custom content parameters, and reads one parameter at a time, starting with number 1\. If there is no corresponding number, the response operation result is 0 ;
+1. The upper computer reads the upper computer to download the custom content parameters, and reads one parameter at a time, starting with number 1. If there is no corresponding number, the response operation result is 0.
 
-2\. The maximum length of each custom content is 120 bytes, the minimum is 1 byte, and the maximum is 32 ;
+2. The maximum length of each custom content is 120 bytes, the minimum is 1 byte, and the maximum is 32.
 
 ##### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 22 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-ifttt function configuration number
-
-0x01 (The first number)
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x22 (low byte)<br /> 0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | IFTTT function configuration number | 0x01 (the first number) |
 
 ##### 3 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 22 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Operation result
-
-0x01/0x00 (success / failure)
-
-1
-
-Total content
-
-0x00
-
-1
-
-Content number
-
-0x00
-
-1
-
-Content length
-
-0x00
-
-N-4
-
-Custom content
-
-0x00
+| byte | meaning | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x 22 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | valid data | operation result | 0x01/0x00 (success / failure) |
+| 1 | | total content  | 0x00 |
+| 1 | | content number | 0x00 |
+| 1 | | content length | 0x00 |
+| N-4 | custom content | 0x00 |
 
 #### 2 . 23 is the read command switch 0xC023
 
