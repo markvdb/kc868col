@@ -599,87 +599,27 @@ High 6bit is invalid
 
 ##### 1 ) Description
 
-1. Actively report the temperature when the temperature change exceeds the threshold;
+1. Actively report the temperature when the temperature change exceeds the threshold.
 
-2. If the analog quantity change exceeds the threshold, it will actively report the analog quantity;
+2. If the analog quantity change exceeds the threshold, it will actively report the analog quantity.
 
-3. The time unit is second, the maximum is 65535 seconds;
+3. The time unit is second, the maximum is 65535 seconds.
 
-4. The temperature change threshold is 5000=50.00 degrees Celsius, and the analog value change threshold is 200=2.50V ;
+4. The temperature change threshold is 5000=50.00 degrees Celsius, and the analog value change threshold is 200=2.50V.
 
 ##### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 31 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-2
-
-valid data
-
-Temperature change threshold
-
-0x00 (low byte)
-
-0x00 (high byte)
-
-2
-
-Analog quantity change threshold
-
-0x00 (low byte)
-
-0x00 (high byte)
-
-2
-
-Time reporting
-
-0x00 (low byte)
-
-0x00 (high byte)
-
-2
-
-Reserved
-
-0x00
+| byte | meaning | --- |example |
+| --- | --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x31 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 2 | valid data | Temperature change threshold | 0x00 (low byte)<br />0x00 (high byte) |
+| 2 | valid data | analog quantity change threshold | 0x00 (low byte)<br />0x00 (high byte) |
+| 2 | valid data | time reporting | 0x00 (low byte)<br />0x00 (high byte) |
+| 2 | reserved  |  | 0x00 |
 
 ##### 3 ) Slave response
 
