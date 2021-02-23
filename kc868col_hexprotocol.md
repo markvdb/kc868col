@@ -564,107 +564,48 @@ Custom content output type
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | valid data | analog number | 0x01 = (first 1 channels)<br />=0x04 (the 4th channel)<br />=0xFF (all 5 channels) |
-| 2 | value |  | 0x00 (low byte)<br />0x00 (high byte) |
+| 2 | | value | 0x00 (low byte)<br />0x00 (high byte) |
 
-#### 2.2.26 ifttt running status report command 0xC026
+#### 2.2.26 IFTTT running status report command 0xC026
 
 ##### 1 ) Description
 
-1\. Get ifttt T operating state, a bar ifttt time function satisfies all the conditions, state 1 , i.e. in the running Then , the state is 1 ; otherwise, the state is 0 ;
+1. Get IFTTT T operating state, a bar IFTTT time function satisfies all the conditions, state 1 , i.e. in the running Then , the state is 1 ; otherwise, the state is 0.
 
-2 . Ifttt operating state changes, equipment actively reports;
+2 . IFTTT operating state changes, equipment actively reports.
 
-3 . Each represents a Ifttt , ie . 7 bytes . 5 0 th bit representatives . 5 0 th Ifttt ;
+3 . Each represents an IFTTT , ie . 7 bytes . 5 0 th bit representatives . 5 0 th IFTTT.
 
 ##### 2 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 2 6 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-i fttt status
-
-0 x 00 (No. 1~ 8 ifttt )
-
-0 x 01 represents the number 1ifttt is in Then state
-
-1
-
-0 x 00 (No. 9 ~ 16 ifttt )
-
-1
-
-0 x 00 (No. 17 ~ 24 ifttt )
-
-1
-
-0 x 00 (No. 25 ~ 32 ifttt )
-
-1
-
-0 x 00 (No. 33 ~ 40 ifttt )
-
-1
-
-0 x 00 (No. 41 ~ 48 ifttt )
-
-1
-
-0 x 00 (No. 49 ~ 50 ifttt )
+| byte | meaning | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type |  | 0x 2 6 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | valid data | IFTTT status | 0 x 00 (No. 1~ 8 ifttt )<br />0 x 01 represents the number 1 IFTTT is in Then state |
+| 1 | valid data | IFTTT stauts | 0 x 00 (No. 9 ~ 16 ifttt )|
+| 1 | valid data | IFTTT stauts | 0 x 00 (No. 17 ~ 24 ifttt )|
+| 1 | valid data | IFTTT stauts | 0 x 00 (No. 25 ~ 32 ifttt )|
+| 1 | valid data | IFTTT stauts | 0 x 00 (No. 33 ~ 40 ifttt )|
+| 1 | valid data | IFTTT stauts | 0 x 00 (No. 41 ~ 48 ifttt )|
+| 1 | valid data | IFTTT stauts | 0 x 00 (No. 49 ~ 50 ifttt )|
 
 High 6bit is invalid
 
-#### 2.2.31 is the main control board setting command parameter 0xC031
+#### 2.2.31 main control board setting command parameter 0xC031
 
 ##### 1 ) Description
 
-1\. Actively report the temperature when the temperature change exceeds the threshold;
+1. Actively report the temperature when the temperature change exceeds the threshold;
 
-2\. If the analog quantity change exceeds the threshold, it will actively report the analog quantity;
+2. If the analog quantity change exceeds the threshold, it will actively report the analog quantity;
 
-3\. The time unit is second, the maximum is 65535 seconds;
+3. The time unit is second, the maximum is 65535 seconds;
 
-4.  The temperature change threshold is 5000=50.00 degrees Celsius, and the analog value change threshold is 200=2.50V ;
+4. The temperature change threshold is 5000=50.00 degrees Celsius, and the analog value change threshold is 200=2.50V ;
 
 ##### 2 ) Host request
 
