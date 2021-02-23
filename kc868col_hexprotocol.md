@@ -192,61 +192,22 @@ This command is a transparent transmission command, and the slave computer forwa
 
 ##### 1 ) Description
 
-1\. Each condition parameter is 6 bytes, each output action is 3 bytes, each function has up to 10 conditions, and up to 50 action outputs. Therefore, each can occupy a space of 210Byte ;
+1. Each condition parameter is 6 bytes, each output action is 3 bytes, each function has up to 10 conditions, and up to 50 action outputs. Therefore, each can occupy a space of 210Byte.
 
-2\. The microcontroller RAM is 48K , 50 th ifttt function, 50 \* 210 = 10K , therefore, it supports up to 50 th ifttt function;
+2. The microcontroller RAM is 48K , 50 th ifttt function, 50 \* 210 = 10K , therefore, it supports up to 50 th ifttt function.
 
-3\. Download one at a time;
+3. Download one at a time.
 
 ##### 2 ) Host request
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 11 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Ifttt function configuration number
-
-0x00 ( 1~50 )
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x 5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x 11 (low byte)/ 0xC0 (high byte) |
+| 2 | message length | N (low byte)/ N>>8 (high byte) |
+| 38 | spare | 0x00 |
+| 1 | valid data/ Ifttt function configuration number | 0x00 ( 1~50 ) |
 
 1
 
