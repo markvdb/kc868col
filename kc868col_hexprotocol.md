@@ -220,14 +220,14 @@ This command is a transparent transmission command, and the slave computer forwa
 
 ##### 3 ) Slave response
 
-| byte | meaning | | example |
-| --- | --- | --- | --- |
-| 1 | mark bit | | 0x 5E |
-| 1 | version number | | 0x01 |
-| 2 | message type | | 0x 1 1 (low byte)<br />0xC0 (high byte)|
-| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
-| 38 | spare | |  0x00 |
-| 1 | operation result | | 1/0<br />=1 , success<br />=0 , failed, data is full |
+| byte | meaning | example |
+| --- | --- | --- |
+| 1 | mark bit | 0x5E |
+| 1 | version number | 0x01 |
+| 2 | message type | 0x 1 1 (low byte)<br />0xC0 (high byte)|
+| 2 | message length | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare |  0x00 |
+| 1 | operation result | 1/0<br />=1 , success<br />=0 , failed, data is full |
 
 The condition type is resolved as follows:
 
@@ -235,199 +235,41 @@ There are 4 types of conditions, the type codes are ( 0x01 , 0x02 , 0x03 , 0x04 
 
 Timing work type
 
-byte
-
-meaning
-
-Instance
-
-Parsing
-
-1
-
-Type code
-
-0x01
-
-1
-
-Week cycle
-
-0x7F
-
-Each represents one day
-
-\=7F , means Monday to Sunday
-
-Bit0 represents Monday
-
-1
-
-24 o'clock
-
-0x07
-
-1
-
-minute
-
-0x0a
-
-Time 7:10
-
-2
-
-Reserved
+| byte | meaning | instance | parsing |
+| --- | --- | --- | --- |
+| 1 | type code | 0x01 |  |
+| 1 | week cycle | 0x7F | Each represents one day<br />=7F means Monday to Sunday<br />Bit0 represents Monday |
+| 1 | 24 o'clock | 0x07 | |
+| 1 | minute | 0x0a | Time 7:10 |
+| 2 | reserved | | |
 
 Switch input type
-
-byte
-
-meaning
-
-Instance
-
-Parsing
-
-1
-
-Type code
-
-0x02
-
-1
-
-Switch number
-
-0x01 (The first switch value)
-
-Number range 1~16
-
-1
-
-State hold time
-
-0x02
-
-Keep 200ms , maximum 25 seconds
-
-1
-
-Trigger action
-
-0x0/0x01
-
-\=0 , means rising edge
-
-\=1 , means falling edge
-
-2
-
-Reserved
+| byte | meaning | instance | parsing |
+| --- | --- | --- | --- |
+| 1 | type code | 0x02 | |
+| 1 | switch number | 0x01 (The first switch value) | number range 1~16 |
+| 1 | State hold time | 0x02 | Keep 200ms , maximum 25 seconds |
+| 1 | trigger action | 0x0/0x01 | =0 , means rising edge<br />=1 , means falling edge |
+| 2 | reserved | | |
 
 Analog input type
-
-byte
-
-meaning
-
-Instance
-
-Parsing
-
-1
-
-Type code
-
-0x03
-
-1
-
-Analog number
-
-0x01 (The first analog quantity)
-
-Number range 1~16
-
-1
-
-State hold time
-
-0x02
-
-Keep 200ms , maximum 25 seconds
-
-1
-
-Triggering conditions
-
-0x01/0x02
-
-\=1 , means the analog quantity is greater than or equal to the threshold
-
-\=2 , indicating that the analog quantity is less than the threshold
-
-2
-
-Trigger threshold
-
-0x64 (low byte)
-
-100=1.00V , reserve 2 valid digits
-
-0x00 (high byte)
+| byte | meaning | instance | parsing |
+| --- | --- | --- | --- |
+| 1 | type code | 0x03 |
+| 1 | analog number |  0x01 (The first analog quantity) | Number range 1~16 |
+| 1 | State hold time |  0x02 | Keep 200ms , maximum 25 seconds |
+| 1 | triggering conditions | 0x01/0x02 | =1 , means the analog quantity is greater than or equal to the threshold<br />=2 , indicating that the analog quantity is less than the threshold |
+| 2 | trigger threshold | 0x64 (low byte)<br />0x00 (high byte) | 100=1.00V , reserve 2 valid digits |
 
 Temperature sensor type
 
-byte
-
-meaning
-
-Instance
-
-Parsing
-
-1
-
-Type code
-
-0x04
-
-1
-
-Temperature sensor number
-
-0x01 (the first sensor quantity)
-
-Number range 1~5
-
-1
-
-State hold time
-
-0x02
-
-Keep 200ms , maximum 25 seconds
-
-1
-
-Triggering conditions
-
-0x01/0x02
-
-\=1 , means the analog quantity is greater than or equal to the threshold
-
-\=2 , indicating that the analog quantity is less than the threshold
-
-2
-
-Trigger threshold
-
-0x64 (low byte)
-
-100=1.00V , reserve 2 valid digits
-
-0x00 (high byte)
+| byte | meaning | instance | parsing |
+| --- | --- | --- | --- |
+| 1 | type code | 0x04 |
+| 1 | temperature sensor number | 0x01 (the first sensor quantity) | Number range 1~5 |
+| 1 | state hold time | 0x02 | Keep 200ms , maximum 25 seconds |
+| 1 | triggering conditions | 0x01/0x02 | =1 , means the analog quantity is greater than or equal to the threshold<br />=2 , indicating that the analog quantity is less than the threshold |
+| 2 | trigger threshold | 0x64 (low byte)<br />0x00 (high byte) | 100=1.00V , reserve 2 valid digits |
 
 The output function type is resolved as follows:
 
