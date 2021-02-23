@@ -147,7 +147,7 @@ This command is a transparent transmission command, and the slave machine forwar
 | 1 | valid data | output direction | 1/0 ( 232/485 ) | |
 | N-1 | valid data | custom content | 0x00 | |
 
-##### 4 ) Slave response
+##### 3 ) Slave response
 
 | byte | meaning | example | | |
 | --- | --- | --- | --- | --- |
@@ -167,26 +167,26 @@ This command is a transparent transmission command, and the slave computer forwa
 ##### 2 ) Host request
 
 
-| byte | meaning | example |
-| --- | --- | --- |
-| 1 | mark bit | 0x 5E |
-| 1 | version number | 0x01 |
-| 2 | message type | 0x0 3 (low byte)/ 0xC0 (high byte) |
-| 2 | message length | N (low byte)/ N>>8 (high byte) |
-| 38 | spare | 0x00 |
-| N | valid data/ Control RS485 commands | 0x00 |
+| byte | meaning | | example | |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x 5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x0 3 (low byte) | 0xC0 (high byte) |
+| 2 | message length | | N (low byte) | N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| N | valid data | Control RS485 commands | 0x00 |
 
 ##### 5 ) Slave response
 
 
-| byte | meaning | example |
-| --- | --- | --- |
-| 1 | mark bit | 0x 5E |
-| 1 | version number | 0x01 |
-| 2 | message type | 0x03 (low byte)/0xC0 (high byte) |
-| 2 | message length | N (low byte) | N>>8 (high byte) |
+| byte | meaning | | example | |
+| --- | --- | --- | --- | --- |
+| 1 | mark bit | | 0x 5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x03 (low byte) | 0xC0 (high byte) |
+| 2 | message length | | N (low byte) | N>>8 (high byte) |
 | 38 | spare | 0x00 |
-| N | valid data/ Control RS485 response | 0x00 |
+| N | valid data | Control RS485 response | 0x00 |
 
 #### 2 . 11 ifttt functional configuration commands 0xC011
 
