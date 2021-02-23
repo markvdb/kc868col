@@ -746,65 +746,19 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 
 ##### 1 ) Description
 
-1\. When the analog quantity change exceeds the threshold, 16 channels will be reported together;
+1. When the analog quantity change exceeds the threshold, 16 channels will be reported together;
 
 ##### 2 ) Slave response
 
-byte
-
-meaning
-
-Example
-
-1
-
-Mark bit
-
-0x 5E
-
-1
-
-version number
-
-0x01
-
-2
-
-Message type
-
-0x 42 (low byte)
-
-0xC0 (high byte)
-
-2
-
-Message length
-
-N (low byte)
-
-N>>8 (high byte)
-
-38
-
-spare
-
-0x00
-
-1
-
-valid data
-
-Analog number
-
-0xFF (all 16 channels)
-
-2
-
-Value
-
-0x00 (low byte)
-
-0x00 (high byte)
+| byte | meaning | | example |
+| --- | --- | --- | --- |
+| 1 | mark bit |  | 0x 5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x 42 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | valid data | analog number | 0xFF (all 16 channels) |
+| 2 | | value | 0x00 (low byte)<br />0x00 (high byte) |
 
 #### 2.2.43 is automatically reported temperature value command 0xC043
 
