@@ -6,21 +6,21 @@ v1. 1
 
 [2. Wireless communication protocol](#2-wireless-communication-protocol)
 
-  [2.1. Data packet structure](#)
+  [2.1. Data packet structure](#21-data-packet-structure)
 
-  [2.2. Function code](#)
+  [2.2. Function code](#22-function-code)
 
-   [2.2.1 relay board passthrough command 0xC001](#)
+   [2.2.1 relay board passthrough command 0xC001](#221-relay-board-passthrough-command-0xc001)
 
-   [2.2.2 custom content passthrough command 0xC002](#)
+   [2.2.2 custom content passthrough command 0xC002](#222-custom-content-passthrough-command-0xc002)
 
-   [2.2.3 the RS485 passthrough command 0xC003](#)
+   [2.2.3 RS485 passthrough command 0xC003](#223-rs485-passthrough-command-0xc003)
 
-   [2.2.11 ifttt functional configuration commands 0xC011](#)
+   [2.2.11 ifttt functional configuration commands 0xC011](#2211-ifttt-functional-configuration-commands-0xc011)
 
-   [2.2.12 PC download custom content command 0xC012](#)
+   [2.2.12 PC download custom content command 0xC012](#2212-pc-download-custom-content-command-0xc012)
 
-   [2.2.13 Delete ifttt parameters command 0xC013](#)
+   [2.2.13 Delete ifttt parameters command 0xC013](#2213-delete-ifttt-parameters-command-0xc013)
 
    [2.2.14 to delete the contents of the PC download custom command 0xC014](#)
 
