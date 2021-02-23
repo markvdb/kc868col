@@ -111,12 +111,12 @@ This command is a transparent transmission command, and the slave computer forwa
 
 | byte | meaning | | example |
 | --- | --- | --- | --- |
-| 1 |mark bit | | 0x5E |
+| 1 | mark bit | | 0x5E |
 | 1 | version number | | 0x01 |
 | 2 | message type | | 0x01 (low byte)<br /> 0xC0 (high byte) |
 | 2 | message length | | N (low byte)< br /> N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| N | valid data  | control relay commands | 0x00 |
+| N | data payload  | control relay commands | 0x00 |
 
 ##### 3 ) Slave response
 
@@ -127,7 +127,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 2 | message type | | 0x01 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| N | valid data  | control relay response | 0x00 |
+| N | data payload  | control relay response | 0x00 |
 
 #### 2.2.2 custom content passthrough command 0xC002
 
@@ -144,8 +144,8 @@ This command is a transparent transmission command, and the slave machine forwar
 | 2 | message type | | 0x02 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | output direction | 1/0 ( 232/485 ) |
-| N-1 | valid data | custom content | 0x00 |
+| 1 | data payload | output direction | 1/0 ( 232/485 ) |
+| N-1 | data payload | custom content | 0x00 |
 
 ##### 3 ) Slave response
 
@@ -156,7 +156,7 @@ This command is a transparent transmission command, and the slave machine forwar
 | 2 | message type | | 0x0 2 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| N | valid data | answer | 0x00 |
+| N | data payload | answer | 0x00 |
 
 #### 2.2.3 RS485 passthrough command 0xC003
 
@@ -174,7 +174,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 2 | message type | | 0x0 3 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| N | valid data | Control RS485 commands | 0x00 |
+| N | data payload | Control RS485 commands | 0x00 |
 
 ##### 5 ) Slave response
 
@@ -186,7 +186,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 2 | message type | | 0x03 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| N | valid data | Control RS485 response | 0x00 |
+| N | data payload | Control RS485 response | 0x00 |
 
 #### 2.2.11 IFTTT functional configuration commands 0xC011
 
@@ -207,7 +207,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 2 | message type | | 0x11 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | IFTTT function configuration number | 0x00 ( 1~50 ) |
+| 1 | data payload | IFTTT function configuration number | 0x00 ( 1~50 ) |
 | 1 | | number of conditions | M ( 1~10 ) |
 | 1 | | then number | K ( 1~50 ) |
 | 1 | | IFTTT runs | 0x00 |
@@ -317,7 +317,7 @@ Custom content output type
 | 2 | message type | | 0x12 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | content number | 0x00 |
+| 1 | data payload | content number | 0x00 |
 | 1 | | content length | 0x00 |
 | n-2 | | custom content | 0x00 |
 
@@ -349,7 +349,7 @@ Custom content output type
 | 2 | message type | | 0x13 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | Ifttt function number | 0x0 1 (delete one of 1~50 )<br />0xFF (delete all) |
+| 1 | data payload | Ifttt function number | 0x0 1 (delete one of 1~50 )<br />0xFF (delete all) |
 
 ##### 3 ) Slave response
 
@@ -379,7 +379,7 @@ Custom content output type
 | 2 | message type | | 0x14 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 | |
-| 1 | valid data | content number | 0x01 (delete one of 1~32 )<br /> 0xFF (delete all) |
+| 1 | data payload | content number | 0x01 (delete one of 1~32 )<br /> 0xFF (delete all) |
 
 #### 3 ) Slave response
 
@@ -420,7 +420,7 @@ Custom content output type
 | 2 | message type | | 0x21 (low byte) <br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare |  | 0x00 |
-| 1 | valid data | operation result | 0x01/0x00 (success / failure) |
+| 1 | data payload | operation result | 0x01/0x00 (success / failure) |
 | 1 | | total number of IFTTT functions | 0x00 |
 | 1 | | IFTTT function configuration number | 0x00 ( 1~50 ) |
 | 1 | | number of conditions | M ( 1~10 ) |
@@ -461,7 +461,7 @@ Custom content output type
 | 2 | message type | | 0x22 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | operation result | 0x01/0x00 (success / failure) |
+| 1 | data payload | operation result | 0x01/0x00 (success / failure) |
 | 1 | | total content  | 0x00 |
 | 1 | | content number | 0x00 |
 | 1 | | content length | 0x00 |
@@ -497,7 +497,7 @@ Custom content output type
 | 2 | message type | | 0x23 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
+| 1 | data payload | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
 | 1 | | switch | 0x01/0x00 (on / off) |
 
 #### 2.2.24 reads the analog command 0xC024
@@ -530,7 +530,7 @@ Custom content output type
 | 2 | message type |  | 0x24 (low byte)<br />0xC0 (high byte) |
 | 2 | message length |  | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare |  | 0x00 |
-| 1 | valid data | analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />=0xFF (all 16 channels) |
+| 1 | data payload | analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />=0xFF (all 16 channels) |
 | 2 |  | value | 0x00 (low byte)<br />0x00 (high byte) |
 
 #### 2.2.25 reads the temperature value of the command 0xC025
@@ -563,7 +563,7 @@ Custom content output type
 | 2 | message type | | 0x25 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | analog number | 0x01 = (first 1 channels)<br />=0x04 (the 4th channel)<br />=0xFF (all 5 channels) |
+| 1 | data payload | analog number | 0x01 = (first 1 channels)<br />=0x04 (the 4th channel)<br />=0xFF (all 5 channels) |
 | 2 | | value | 0x00 (low byte)<br />0x00 (high byte) |
 
 #### 2.2.26 IFTTT running status report command 0xC026
@@ -585,13 +585,13 @@ Custom content output type
 | 2 | message type |  | 0x26 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | IFTTT status | 0x00 (No. 1~ 8 ifttt )<br />0x01 represents the number 1 IFTTT is in Then state |
-| 1 | valid data | IFTTT stauts | 0x00 (No. 9 ~ 16 ifttt )|
-| 1 | valid data | IFTTT stauts | 0x00 (No. 17 ~ 24 ifttt )|
-| 1 | valid data | IFTTT stauts | 0x00 (No. 25 ~ 32 ifttt )|
-| 1 | valid data | IFTTT stauts | 0x00 (No. 33 ~ 40 ifttt )|
-| 1 | valid data | IFTTT stauts | 0x00 (No. 41 ~ 48 ifttt )|
-| 1 | valid data | IFTTT stauts | 0x00 (No. 49 ~ 50 ifttt )|
+| 1 | data payload | IFTTT status | 0x00 (No. 1~ 8 ifttt )<br />0x01 represents the number 1 IFTTT is in Then state |
+| 1 | data payload | IFTTT stauts | 0x00 (No. 9 ~ 16 ifttt )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 17 ~ 24 ifttt )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 25 ~ 32 ifttt )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 33 ~ 40 ifttt )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 41 ~ 48 ifttt )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 49 ~ 50 ifttt )|
 
 High 6bit is invalid
 
@@ -616,10 +616,10 @@ High 6bit is invalid
 | 2 | message type | | 0x31 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 2 | valid data | Temperature change threshold | 0x00 (low byte)<br />0x00 (high byte) |
-| 2 | valid data | analog quantity change threshold | 0x00 (low byte)<br />0x00 (high byte) |
-| 2 | valid data | time reporting | 0x00 (low byte)<br />0x00 (high byte) |
-| 2 | valid data | reserved | 0x00 |
+| 2 | data payload | Temperature change threshold | 0x00 (low byte)<br />0x00 (high byte) |
+| 2 | data payload | analog quantity change threshold | 0x00 (low byte)<br />0x00 (high byte) |
+| 2 | data payload | time reporting | 0x00 (low byte)<br />0x00 (high byte) |
+| 2 | data payload | reserved | 0x00 |
 
 ##### 3 ) Slave response
 
@@ -646,7 +646,7 @@ The upper computer is connected to the main control board for time synchronizati
 | 2 | message type | | 0x32 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare |  | 0x00 |
-| 1 | valid data | year | 0x00 ( 2 digits after the year ) |
+| 1 | data payload | year | 0x00 ( 2 digits after the year ) |
 | 1 | | month | 0x00 |
 | 1 | | day | 0x00  |
 | 1 | | time | 0x00 |
@@ -678,7 +678,7 @@ Whether the upper computer setting is automatically reported;
 | 2 | message type | 0x33 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br /> N>>8 (high byte) |
 | 38 | spare | 0x00 |
-| 1 | valid data | features | 0x01/0x00<br />=1 , turn on reporting<br />=0 , close reporting|
+| 1 | data payload | features | 0x01/0x00<br />=1 , turn on reporting<br />=0 , close reporting|
 
 ##### 3 ) Slave response
 
@@ -717,7 +717,7 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | 2 | message type | | 0x34 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare |  | 0x00 |
-| 2 | valid data | Temperature change threshold | 0x00 (low byte)<br />0x00 (high byte) |
+| 2 | data payload | Temperature change threshold | 0x00 (low byte)<br />0x00 (high byte) |
 | 2 | | analog quantity change threshold | 0x00 (low byte)<br />0x00 (high byte) |
 | 2 | | time reporting | 0x00 (low byte)<br />0x00 (high byte) |
 | 6 | | Date + time | 0x00 |
@@ -739,7 +739,7 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | 2 | message type | | 0x41 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | analog number | 0xFF (all 16 channels) |
+| 1 | data payload | analog number | 0xFF (all 16 channels) |
 | 16 | | switch | 0x01/0x00 (on / off) |
 
 #### 2.2.42 is automatically reported to the analog command 0xC042
@@ -757,7 +757,7 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | 2 | message type | | 0x42 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | analog number | 0xFF (all 16 channels) |
+| 1 | data payload | analog number | 0xFF (all 16 channels) |
 | 2 | | value | 0x00 (low byte)<br />0x00 (high byte) |
 
 #### 2.2.43 is automatically reported temperature value command 0xC043
@@ -775,7 +775,7 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | 2 | message type |  |0x43 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | |N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | valid data | analog number | 0xFF (all 5 channels)|
+| 1 | data payload | analog number | 0xFF (all 5 channels)|
 | 2 |  | value | 0x00 (low byte)<br />0x00 (high byte) |
 
 ## 4. Communication time limit
@@ -797,7 +797,7 @@ amend record
 
 1.  0xC034 command, the reply data adds 1 byte (automatically reported flag) + software version number;
 2.  0xC001 command, reply to increase the reply content of the relay;
-3.  0xC002 command, response to increase valid data;
+3.  0xC002 command, response to increase data payload;
 4.  0xC003 command, add RS485 reply content in response;
 5.  0xC021 command, add a data bit;
 6.  0xC011 command and 0xC012 command response add a data bit;
