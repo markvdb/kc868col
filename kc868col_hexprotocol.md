@@ -609,7 +609,7 @@ High 6bit is invalid
 
 ##### 2 ) Host request
 
-| byte | meaning | --- |example |
+| byte | meaning | |example |
 | --- | --- | --- | --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
