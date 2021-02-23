@@ -85,8 +85,8 @@ The function code is 1 byte and is used to select a command (read, write, respon
 
 | Function code (host request) | Function code (slave response) | meaning |
 | --- | --- | --- |
-| 0x C0 01 | 0x C0 01 | relay board transparent transmission command |
-|0x C0 02 | 0x C0 02 | RS232 transparent transmission command |
+| 0x C001 | 0x C001 | relay board transparent transmission command |
+| 0x C002 | 0x C002 | RS232 transparent transmission command |
 | 0x C003 | 0x C003 | RS485 transparent transmission command |
 | 0x C011 | 0x C011 | Ifttt function configuration command |
 | 0x C012 | 0x C012 | PC download custom content command |
