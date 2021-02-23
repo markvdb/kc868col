@@ -111,11 +111,11 @@ This command is a transparent transmission command, and the slave computer forwa
 
 | byte | meaning | meaning continued | example |
 | --- | --- | --- | --- |
-| 1 |<td colspan=2>mark bit| 0x 5E |
-| 1 |<td colspan=2>version number| 0x01 |
-| 2 |<td colspan=2>message type| 0x01 (low byte)/ 0xC0 (high byte) |
-| 2 |<td colspan=2>message length|N (low byte) / N>>8 (high byte) |
-| 38 |<td colspan=2>spare| 0x00 |
+| 1 <td colspan=2>mark bit| 0x 5E |
+| 1 <td colspan=2>version number| 0x01 |
+| 2 <td colspan=2>message type| 0x01 (low byte)/ 0xC0 (high byte) |
+| 2 <td colspan=2>message length|N (low byte) / N>>8 (high byte) |
+| 38 <td colspan=2>spare| 0x00 |
 | N | valid data | control relay commands | 0x00 |
 
 ##### 3 ) Slave response
