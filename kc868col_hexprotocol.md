@@ -639,13 +639,13 @@ The upper computer is connected to the main control board for time synchronizati
 
 ##### 2 ) Host request
 
-| byte | meaning | example |
-| --- | --- | --- |
-| 1 | mark bit | 0x5E |
-| 1 | version number | 0x01 |
-| 2 | message type | 0x32 (low byte)<br />0xC0 (high byte) |
-| 2 | message length | N (low byte)<br />N>>8 (high byte) |
-| 38 | spare | 0x00 |
+| byte | meaning | | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x32 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare |  | 0x00 |
 | 1 | valid data | year | 0x00 ( 2 digits after the year ) |
 | 1 | | month | 0x00 |
 | 1 | | day | 0x00  |
