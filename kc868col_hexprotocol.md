@@ -16,15 +16,15 @@ v1. 1
 
    [2.2.3 RS485 passthrough command 0xC003](#223-rs485-passthrough-command-0xc003)
 
-   [2.2.11 ifttt functional configuration commands 0xC011](#2211-ifttt-functional-configuration-commands-0xc011)
+   [2.2.11 IFTTT functional configuration commands 0xC011](#2211-ifttt-functional-configuration-commands-0xc011)
 
    [2.2.12 PC download custom content command 0xC012](#2212-pc-download-custom-content-command-0xc012)
 
-   [2.2.13 Delete ifttt parameters command 0xC013](#2213-delete-ifttt-parameters-command-0xc013)
+   [2.2.13 Delete IFTTT parameters command 0xC013](#2213-delete-ifttt-parameters-command-0xc013)
 
    [2.2.14 to delete the contents of the PC download custom command 0xC014](#)
 
-   [2.2.21 is read ifttt Function Configuration Commands 0xC021](#)
+   [2.2.21 is read IFTTT Function Configuration Commands 0xC021](#)
 
    [2.2.22 is reading the contents of the PC download custom command 0xC022](#)
 
@@ -34,7 +34,7 @@ v1. 1
 
    [2.2.25 reads the temperature value of the command 0xC025](#)
 
-   [2.2.26 ifttt running status report command 0xC026](#)
+   [2.2.26 IFTTT running status report command 0xC026](#)
 
    [2.2.31 is the main control board setting command parameter 0xC031](#)
 
@@ -88,9 +88,9 @@ The function code is 1 byte and is used to select a command (read, write, respon
 | 0xC001 | 0xC001 | relay board transparent transmission command |
 | 0xC002 | 0xC002 | RS232 transparent transmission command |
 | 0xC003 | 0xC003 | RS485 transparent transmission command |
-| 0xC011 | 0xC011 | Ifttt function configuration command |
+| 0xC011 | 0xC011 | IFTTT function configuration command |
 | 0xC012 | 0xC012 | PC download custom content command |
-| 0xC021 | 0xC021 | read Ifttt function configuration command |
+| 0xC021 | 0xC021 | read IFTT function configuration command |
 | 0xC022 | 0xC022 | Read command to download custom content from upper computer |
 | 0xC023 | 0xC023 | Read switch command |
 | 0xC024 | 0xC024 | Read analog command |
@@ -336,7 +336,7 @@ Custom content output type
 
 ##### 1 ) Description
 
-1. Delete ifttt parameter. You can delete one or all.
+1. Delete IFTTT parameter. You can delete one or all.
 
 2. The number range is 1~50. The response fails when it exceeds the range.
 
@@ -349,7 +349,7 @@ Custom content output type
 | 2 | message type | | 0x13 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | data payload | Ifttt function number | 0x0 1 (delete one of 1~50 )<br />0xFF (delete all) |
+| 1 | data payload | IFTTT function number | 0x0 1 (delete one of 1~50 )<br />0xFF (delete all) |
 
 ##### 3 ) Slave response
 
@@ -409,7 +409,7 @@ Custom content output type
 | 2 | message type | 0x21 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
-| 1 | ifttt function configuration number | 0x01 (the first number) |
+| 1 | IFTTT function configuration number | 0x01 (the first number) |
 
 ##### 3 ) Slave response
 
@@ -585,13 +585,13 @@ Custom content output type
 | 2 | message type |  | 0x26 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
-| 1 | data payload | IFTTT status | 0x00 (No. 1~ 8 ifttt )<br />0x01 represents the number 1 IFTTT is in Then state |
-| 1 | data payload | IFTTT stauts | 0x00 (No. 9 ~ 16 ifttt )|
-| 1 | data payload | IFTTT stauts | 0x00 (No. 17 ~ 24 ifttt )|
-| 1 | data payload | IFTTT stauts | 0x00 (No. 25 ~ 32 ifttt )|
-| 1 | data payload | IFTTT stauts | 0x00 (No. 33 ~ 40 ifttt )|
-| 1 | data payload | IFTTT stauts | 0x00 (No. 41 ~ 48 ifttt )|
-| 1 | data payload | IFTTT stauts | 0x00 (No. 49 ~ 50 ifttt )|
+| 1 | data payload | IFTTT status | 0x00 (No. 1~ 8 IFTT )<br />0x01 represents the number 1 IFTTT is in Then state |
+| 1 | data payload | IFTTT stauts | 0x00 (No. 9 ~ 16 IFTTT )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 17 ~ 24 IFTTT )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 25 ~ 32 IFTTT )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 33 ~ 40 IFTTT )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 41 ~ 48 IFTTT )|
+| 1 | data payload | IFTTT stauts | 0x00 (No. 49 ~ 50 IFTTT )|
 
 High 6bit is invalid
 
