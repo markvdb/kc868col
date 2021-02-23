@@ -65,17 +65,17 @@ The physical layer of the protocol is wired network communication. The KC868-COL
 
 The transmission data adopts network byte order. The basic data format is defined as follows:
 1) data header: 44 bytes
-2) data content: n bytes
+2) data payload: n bytes
 
 The data header is defined as follows: 
  1. mark bit: 0x5E (1 byte)
  2. version number: 0x01  (1 byte)
  3. message type: used to distinguish data or instruction type (see message type definition) (2 bytes)
- 4. data length: the length of the data content excluding the header part (2 bytes)
- 5. device ID: Serial number of the device ( string length does not exceed 28 bytes ) 
+ 4. data length: the length of the data payload excluding the header part (2 bytes)
+ 5. device ID: serial number of the device ( string length does not exceed 28 bytes ) 
  6. extended data: varies according to the message type (up to 10 bytes)
 
-The communication protocol uses little endian mode. When the data is larger than 1 byte, the high bit of the data is placed in the high address;
+The communication protocol uses little endian mode. When the data is larger than 1 byte, the high bit of the data is placed in the high address.
 
 The data uses hexadecimal.
 
@@ -105,7 +105,7 @@ Every function code is explained in detail below.
 
 ##### 1 ) Description
 
-This command is a transparent transmission command, and the slave computer forwards the command of the upper computer control relay board;
+This command is a transparent transmission command, and the slave computer forwards the command of the upper computer control relay board.
 
 ##### 2 ) Host request
 
@@ -133,7 +133,7 @@ This command is a transparent transmission command, and the slave computer forwa
 
 ##### 1 ) Description
 
-This command is a transparent transmission command, and the slave machine forwards the customized content of the host computer to RS232 or RS485 ;
+This command is a transparent transmission command, and the slave machine forwards the customized content of the host computer to RS232 or RS485. 
 
 ##### 2 ) Host request
 
@@ -231,7 +231,7 @@ This command is a transparent transmission command, and the slave computer forwa
 
 The condition type is resolved as follows:
 
-There are 4 types of conditions, the type codes are ( 0x01 , 0x02 , 0x03 , 0x04 ), each type is 6 bytes;
+There are 4 types of conditions, the type codes are ( 0x01 , 0x02 , 0x03 , 0x04 ), each type is 6 bytes.
 
 Timing work type
 
@@ -273,7 +273,7 @@ Temperature sensor type
 
 The output function type is resolved as follows:
 
-There are 3 types of Then output, the type codes are ( 0x11 , 0x12 , 0x13 ), each type has 3 bytes;
+There are 3 types of Then output, the type codes are ( 0x11 , 0x12 , 0x13 ), each type has 3 bytes.
 
 Time delay type
 
@@ -366,9 +366,9 @@ Custom content output type
 
 ##### 1) Description
 
-1. Delete the custom content data downloaded by the upper computer, you can delete one or all;
+1. Delete the custom content data downloaded by the upper computer, you can delete one or all.
 
-2. The number range is 1~32 , and the response fails if it exceeds the range;
+2. The number range is 1~32 , and the response fails if it exceeds the range.
 
 ##### 2) Host request
 
@@ -479,14 +479,14 @@ Custom content output type
 
 ##### 2 ) Host request
 
-| byte | meaning | example |
-| --- | --- | --- |
-| 1 | mark bit | 0x5E |
-| 1 | version number | 0x01 |
-| 2 | message type | 0x23 (low byte)<br />0xC0 (high byte) |
-| 2 | message length | N (low byte)<br />N>>8 (high byte) |
-| 38 | spare | 0x00 |
-| 1 | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
+| byte | meaning | | example |
+| --- | --- | --- | --- |
+| 1 | mark bit | | 0x5E |
+| 1 | version number | | 0x01 |
+| 2 | message type | | 0x23 (low byte)<br />0xC0 (high byte) |
+| 2 | message length | | N (low byte)<br />N>>8 (high byte) |
+| 38 | spare | | 0x00 |
+| 1 | data payload | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
 
 #### 3 ) Slave response
 
@@ -498,28 +498,28 @@ Custom content output type
 | 2 | message length | | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | | 0x00 |
 | 1 | data payload | analog number | 0x01 = (first 1 channels)<br />0x10 (the 16th channel)<br />0xFF (all 16 channels) |
-| 1 | | switch | 0x01/0x00 (on / off) |
+| 1 | data payload | switch | 0x01/0x00 (on / off) |
 
 #### 2.2.24 reads the analog command 0xC024
 
 ##### 1 ) Description
 
-1. The upper computer reads the analog value, and it can read 1 or 16 channels at a time;
+1. The upper computer reads the analog value, and it can read 1 or 16 channels at a time.
 
-2. No. 1 , means to read the analog quantity of channel 1 , and the slave returns 1 group of data ( 2 bytes);
+2. No. 1 , means to read the analog quantity of channel 1 , and the slave returns 1 group of data ( 2 bytes).
 
-3. No. 255 , which means to read all channel analogs, and the slave returns 16 groups of data ( 32 bytes);
+3. No. 255 , which means to read all channel analogs, and the slave returns 16 groups of data ( 32 bytes).
 
 ##### 2 ) Host request
 
-| byte | meaning | example |
-| ---  | --- | --- |
+| byte | meaning | | example |
+| ---  | --- | ---| --- |
 | 1 | mark bit | 0x5E |
 | 1 | version number | 0x01 |
 | 2 | message type | 0x24 (low byte)<br />0xC0 (high byte) |
 | 2 | message length | N (low byte)<br />N>>8 (high byte) |
 | 38 | spare | 0x00 |
-| 1 | Analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />0xFF (all 16 channels) |
+| 1 | data payload | analog number | 0x01 = (first 1 channels)<br />=0x10 (the 16th channel)<br />0xFF (all 16 channels) |
 
 #### 3 ) Slave response
 
@@ -570,7 +570,7 @@ Custom content output type
 
 ##### 1 ) Description
 
-1. Get IFTTT T operating state, a bar IFTTT time function satisfies all the conditions, state 1 , i.e. in the running Then , the state is 1 ; otherwise, the state is 0.
+1. Get IFTTT T operating state, a bar IFTTT time function satisfies all the conditions, state 1 , i.e. in the running Then , the state is 1. Otherwise, the state is 0.
 
 2 . IFTTT operating state changes, equipment actively reports.
 
@@ -667,7 +667,7 @@ The upper computer is connected to the main control board for time synchronizati
 
 ##### 1 ) Description
 
-Whether the upper computer setting is automatically reported;
+Whether the upper computer setting is automatically reported.
 
 ##### 2 ) Host request
 
@@ -746,7 +746,7 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 
 ##### 1 ) Description
 
-1. When the analog quantity change exceeds the threshold, 16 channels will be reported together;
+1. When the analog quantity change exceeds the threshold, 16 channels will be reported together.
 
 ##### 2 ) Slave response
 
@@ -795,9 +795,9 @@ Author KinCony IOT
 
 amend record
 
-1.  0xC034 command, the reply data adds 1 byte (automatically reported flag) + software version number;
-2.  0xC001 command, reply to increase the reply content of the relay;
-3.  0xC002 command, response to increase data payload;
-4.  0xC003 command, add RS485 reply content in response;
-5.  0xC021 command, add a data bit;
-6.  0xC011 command and 0xC012 command response add a data bit;
+1.  0xC034 command, the reply data adds 1 byte (automatically reported flag) + software version number.
+2.  0xC001 command, reply to increase the reply content of the relay.
+3.  0xC002 command, response to increase data payload.
+4.  0xC003 command, add RS485 reply content in response.
+5.  0xC021 command, add a data bit.
+6.  0xC011 command and 0xC012 command response add a data bit.
