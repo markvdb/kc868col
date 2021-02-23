@@ -227,7 +227,7 @@ This command is a transparent transmission command, and the slave computer forwa
 | 2 | message type | | 0x 1 1 (low byte)| 0xC0 (high byte) |
 | 2 | message length | | N (low byte) | N>>8 (high byte) |
 | 38 | spare | |  0x00 |
-| 1 | operation result | | 1/0 \n=1 , success\n=0 , failed, data is full |
+| 1 | operation result | | 1/0<br />=1 , success<br />=0 , failed, data is full |
 
 The condition type is resolved as follows:
 
