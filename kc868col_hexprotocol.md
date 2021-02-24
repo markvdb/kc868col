@@ -779,21 +779,22 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | 2 |  | value | 0x00 (low byte)<br />0x00 (high byte) |
 
 ## 4. Communication time limit
-----------------------------
-
 When performing certain operations, the target device needs to perform certain operations to complete, which will take more time. Under normal circumstances, it is required to respond within 1s.
+
+## English version
+Translated by Google Translate. Corrections and layout updates by Mark Van den Borre <mark@fosdem.org>.
 
 ## Revision history
 
 Date 20200308
 
-Version 1 .0
+Version 1.0
 
 Description Created document.
 
 Author KinCony IOT
 
-amend record
+revision record
 
 1.  0xC034 command, the reply data adds 1 byte (automatically reported flag) + software version number.
 2.  0xC001 command, reply to increase the reply content of the relay.
