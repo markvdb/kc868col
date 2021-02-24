@@ -48,7 +48,7 @@ v1. 1
 
    [2.2.42 is automatically reported to the analog command 0xC042](#)
 
-   [2.2.43 is automatically reported temperature value command 0xC043](#)
+   [2.2.43 automatically reported temperature value command 0xC043](#)
 
 [3. Communication time limit](#)
 
@@ -760,11 +760,11 @@ Clock format 0x19 0x03 0x11 0x05 0x04 0x03 =2019/03/11 5:04:03
 | 1 | data payload | analog number | 0xFF (all 16 channels) |
 | 2 | | value | 0x00 (low byte)<br />0x00 (high byte) |
 
-#### 2.2.43 is automatically reported temperature value command 0xC043
+#### 2.2.43 automatically reported temperature value command 0xC043
 
 ##### 1 ) Description
 
-1. When the analog quantity change exceeds the threshold, 5 channels are reported together.
+1. When the analog quantity change exceeds the threshold, all 5 channels are reported together.
 
 ##### 2 ) Slave response
 
